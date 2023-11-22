@@ -1,0 +1,197 @@
+/*-------Null-list-----------------------------*/
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-size: 100%;
+	font-size: 16px;
+	line-height: 1;
+}
+
+img {
+	vertical-align: top;
+}
+
+ul li {
+	list-style: none;
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+a:focus,
+a:active {
+	outline: none;
+}
+
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+/*------------------------------------*/
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: Inter;
+	background-color: rgba(225, 212, 201, 1);
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+[class*=__container] {
+	max-width: 1360px;
+	margin: 0 auto;
+	padding: 0px 40px;
+	box-sizing: content-box;
+}
+
+/*--------------Header----------------------*/
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
+}
+
+.header__container {}
+
+.header__body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 60px;
+	margin: 20px 0;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.header__logo {
+	width: 100px;
+	height: 60px;
+}
+
+.header__menu {}
+
+.menu__list {
+	display: flex;
+	gap: 40px;
+}
+
+.menu__item {}
+
+.menu__link {
+	color: #403F3D;
+}
+
+.header__icon {
+	display: flex;
+	gap: 8px;
+}
+
+.icon__text {
+	color: #403F3D;
+}
+
+.icon__img {}
+
+/*--------------Main----------------------*/
+.main {
+	flex: 1 1 auto;
+}
+
+.main__enjoy {
+	padding: 100px 0px;
+}
+
+.enjoy__container {}
+
+.enjoy__body {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	position: absolute;
+	max-width: 530px;
+	margin: 100px 0px 100px 100px;
+	z-index: 5;
+}
+
+.enjoy__img {
+	overflow: hidden;
+	height: 644px;
+}
+
+.enjoy__img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 40px;
+}
+
+.enjoy__title {
+	font-size: 72px;
+	font-weight: 600;
+	line-height: 105%;
+	color: #E1D4C9;
+}
+
+.title-dec {
+	color: #B0907A;
+	font-style: italic;
+}
+
+.enjoy__text {
+	color: #E1D4C9;
+	line-height: 24px
+}
+
+.enjoy__button {}
+
+.enjoy__btn {
+	display: inline-block;
+	border-radius: 100px;
+	background: #E1D4C9;
+	padding: 20px 78px;
+	color: #403F3D;
+	text-align: center;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.footer {}
