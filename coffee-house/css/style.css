@@ -280,7 +280,7 @@ body {
 
 .favourite__arrow-left {
 	position: relative;
-	margin: -35px 0px 0px 0px;
+	margin: -45px 0px 0px 0px;
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
@@ -376,7 +376,7 @@ body {
 
 .favourite__arrow-right {
 	position: relative;
-	margin: -35px 0px 0px 0px;
+	margin: -45px 0px 0px 0px;
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
