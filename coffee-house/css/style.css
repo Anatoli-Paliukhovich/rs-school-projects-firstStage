@@ -120,6 +120,30 @@ body {
 	color: #403F3D;
 }
 
+.stretch-line {
+	position: relative;
+}
+
+.stretch-line::after {
+	content: '';
+	position: absolute;
+	bottom: -3px;
+	left: 50%;
+	transform: translate(-50%);
+	height: 3px;
+	width: 0;
+	background-color: rgba(64, 63, 61, 1);
+	transition: all linear 0.5s;
+}
+
+.menu__link:hover.stretch-line::after {
+	width: 100%;
+}
+
+.header__icon:hover.stretch-line::after {
+	width: 100%;
+}
+
 .header__icon {
 	display: flex;
 	gap: 8px;
@@ -182,17 +206,42 @@ body {
 	line-height: 24px
 }
 
-.enjoy__button {}
-
-.enjoy__btn {
-	display: inline-block;
+.enjoy__button {
+	display: inline-flex;
+	max-width: 200px;
 	border-radius: 100px;
 	background: #E1D4C9;
-	padding: 20px 78px;
-	color: #403F3D;
 	text-align: center;
 	font-weight: 600;
 	line-height: 24px;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.enjoy__btn {
+	display: flex;
+	color: #403F3D;
+	padding: 20px 78px 20px 78px;
+	transition: 0.5s;
+}
+
+.enjoy__btn-img {
+	display: block;
+	opacity: 0;
+	padding: 0px 0px 0px 8px;
+	visibility: hidden;
+	transition: 0.5s;
+}
+
+.enjoy__button:hover .enjoy__btn {
+	padding: 20px 78px 20px 75px;
+}
+
+.enjoy__button:hover .enjoy__btn-img {
+	display: block;
+	opacity: 1;
+	padding: 0px 0px 0px 8px;
+	visibility: visible;
 }
 
 /*--------------Main-favourite----------------------*/
@@ -229,9 +278,30 @@ body {
 	align-items: center;
 }
 
-.favourite__arrow-left {}
+.favourite__arrow-left {
+	position: relative;
+	margin: -35px 0px 0px 0px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 1px solid #665F55;
+	cursor: pointer;
+	transition: 0.8s;
+}
 
-.left-arrow {}
+.left-arrow {
+	position: absolute;
+	top: 18px;
+	left: 18px;
+}
+
+.favourite__arrow-left:hover {
+	background-color: #665F55;
+}
+
+.favourite__arrow-left:hover svg path {
+	stroke: rgba(225, 212, 201, 1);
+}
 
 .favourite__slider {
 	display: flex;
@@ -305,10 +375,34 @@ body {
 .favourite__cslider-btns-link {}
 
 .favourite__arrow-right {
+	position: relative;
+	margin: -35px 0px 0px 0px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 1px solid #665F55;
 	cursor: pointer;
+	transition: 0.8s;
 }
 
-.right-arrow {}
+.right-arrow {
+	position: absolute;
+	top: 18px;
+	left: 18px;
+}
+
+.favourite__arrow-right:hover {
+	background-color: #665F55;
+}
+
+.favourite__arrow-rigth:hover {
+	background-color: #665F55;
+}
+
+.favourite__arrow-right:hover svg path {
+	stroke: rgba(225, 212, 201, 1);
+}
+
 
 /*-------------------Main-about------------------------*/
 .about {
@@ -368,7 +462,7 @@ body {
 
 .mobileapp__body {
 	display: flex;
-	gap: 10px;
+	gap: 100px;
 	justify-content: space-between;
 	justify-content: center;
 	align-items: center;
@@ -482,6 +576,7 @@ body {
 	object-fit: cover;
 }
 
+/*------------------Footer-----------------------------*/
 .footer {}
 
 .footer__content {}
@@ -491,10 +586,11 @@ body {
 .footer__body {
 	border-radius: 40px;
 	padding: 100px;
+	gap: 100px;
 	background: #665F55;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	gap: 100px;
 	margin: 0px 0px 40px 0px;
 }
 
@@ -517,23 +613,24 @@ body {
 	gap: 12px;
 }
 
-.footer__icons-item:hover {}
-
-.footer__icons-link {
-	transition: 0.5s;
-
-}
-
-.footer__icons-link {
+.footer__icons-item:hover svg path {
+	transition: stroke 0.8s ease-in-out;
 }
 
 .footer__icons-link:hover svg rect {
+	transition: fill 1s ease-in-out;
 	fill: #E1D4C9;
 	stroke: #E1D4C9;
+	transition: all 0.8s ease-in-out;
 }
 
 .footer__icons-link:hover svg path {
 	stroke: rgba(64, 63, 61, 1);
+}
+
+.footer__contacts {
+	flex: 1 1 auto;
+	padding: 0px 0px 0px 35px;
 }
 
 .footer__contacts-title {
@@ -559,9 +656,15 @@ body {
 	cursor: pointer;
 }
 
+.contacts-body-row a {
+	display: flex;
+	gap: 8px;
+}
+
 .contacts-body-row:last-child {
 	cursor: default;
 }
+
 .stretch {
 	position: relative;
 }
@@ -569,15 +672,16 @@ body {
 .stretch::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
+	bottom: -2px;
 	left: 0;
 	height: 2px;
 	width: 0;
 	background-color: #E1D4C9;
 	transition: all linear 0.5s;
 }
-.contacts-body-row:hover.stretch::after {
-	width: 70%;
+
+.contacts-body-row a:hover.stretch::after {
+	width: 100%;
 }
 
 .contacts-body-icon {

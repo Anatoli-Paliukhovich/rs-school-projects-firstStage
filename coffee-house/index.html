@@ -6,7 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Inter:regular,600,700&display=swap" rel="stylesheet">
-	<title>coffee-house</title>
+	<link type="image/png" sizes="96x96" rel="icon" href="img/icons8-кафе-96.png">
+	<title>Coffee house</title>
 </head>
 
 <body>
@@ -20,20 +21,20 @@
 					<nav class="header__menu">
 						<ul class="menu__list">
 							<li class="menu__item">
-								<a href="#favourite" class="menu__link">Favorite coffee</a>
+								<a href="#favourite" class="menu__link stretch-line">Favorite coffee</a>
 							</li>
 							<li class="menu__item">
-								<a href="#about" class="menu__link">About</a>
+								<a href="#about" class="menu__link stretch-line">About</a>
 							</li>
 							<li class="menu__item">
-								<a href="#mobileapp" class="menu__link">Mobile app</a>
+								<a href="#mobileapp" class="menu__link stretch-line">Mobile app</a>
 							</li>
 							<li class="menu__item">
-								<a href="#footer" class="menu__link">Contact us</a>
+								<a href="#footer" class="menu__link stretch-line">Contact us</a>
 							</li>
 						</ul>
 					</nav>
-					<a href="" class="header__icon">
+					<a href="./menu_page/second_page.html" class="header__icon stretch-line">
 						<div class="icon__text">Menu</div>
 						<div class="icon__img">
 							<img src="/img/header/coffee-cup.svg" alt="cup">
@@ -50,8 +51,12 @@
 						<div class="enjoy__text">With its inviting atmosphere and delicious coffee options, the Coffee House
 							Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to
 							enjoy their favorite beverage.</div>
+
 						<div class="enjoy__button">
-							<a href="" class="enjoy__btn btn">Menu</a>
+							<a href="./menu_page/second_page.html" class="enjoy__btn btn">Menu
+								<span class="enjoy__btn-img">
+									<img src="img/main/enjoy/coffee-cup.svg" alt="cup">
+								</span></a>
 						</div>
 					</div>
 					<div class="enjoy__img"><img src="/img/main/enjoy/img-hero.jpg" alt="main-picture"></div>
@@ -62,7 +67,11 @@
 					<h2 class="favourite__title title">Choose your <span class="title-decoration">favorite</span> coffee</h2>
 					<div class="favourite__body">
 						<div class="favourite__arrow-left">
-							<img class="left-arrow" src="img/main/favorite/arrow-left.svg" alt="arrowleft">
+							<svg class="left-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M18.5 12H6M6 12L12 6M6 12L12 18" stroke="#403F3D" stroke-linecap="round"
+									stroke-linejoin="round" />
+							</svg>
 						</div>
 						<div class="favourite__slider">
 							<div class="favourite__slider-image">
@@ -87,7 +96,11 @@
 							</div>
 						</div>
 						<div class="favourite__arrow-right">
-							<img class="right-arrow" src="img/main/favorite/arrow-right.svg" alt="arrowright">
+							<svg class="right-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18" stroke="#403F3D" stroke-linecap="round"
+									stroke-linejoin="round" />
+							</svg>
 						</div>
 					</div>
 				</div>
@@ -182,7 +195,9 @@
 									coffee time!</span></h2>
 							<ul class="footer__icons-list">
 								<li class="footer__icons-item">
-									<a href="" class="footer__icons-link">
+									<a target="_blank"
+										href="https://twitter.com/i/flow/login?redirect_after_login=%2F%3Flang%3Dru"
+										class="footer__icons-link">
 										<svg width="60" height="60" viewBox="0 0 60 60" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
 											<rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#C1B6AD" />
@@ -193,7 +208,7 @@
 									</a>
 								</li>
 								<li class="footer__icons-item">
-									<a href="" class="footer__icons-link">
+									<a target="_blank" href="https://www.instagram.com/" class="footer__icons-link">
 										<svg width="60" height="60" viewBox="0 0 60 60" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
 											<rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#C1B6AD" />
@@ -209,7 +224,7 @@
 									</a>
 								</li>
 								<li class="footer__icons-item">
-									<a href="" class="footer__icons-link">
+									<a target="_blank" href="https://ru-ru.facebook.com/" class="footer__icons-link">
 										<svg width="60" height="60" viewBox="0 0 60 60" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
 											<rect x="0.5" y="0.5" width="59" height="59" rx="29.5" stroke="#C1B6AD" />
@@ -224,17 +239,21 @@
 						<div class="footer__contacts">
 							<h4 class="footer__contacts-title">Contact us</h4>
 							<div class="footer__contacts-body">
-								<div class="contacts-body-row stretch">
-									<div class="contacts-body-icon">
-										<img src="img/main/footer/f4.svg" alt="location">
-									</div>
-									<div class="contacts-body-text">8558 Green Rd., LA</div>
+								<div class="contacts-body-row">
+									<a target="_blank" href="https://maps.app.goo.gl/rkT6AjNWGArzjkJ76" class="stretch">
+										<div class="contacts-body-icon">
+											<img src="img/main/footer/f4.svg" alt="location">
+										</div>
+										<div class="contacts-body-text">8558 Green Rd., LA</div>
+									</a>
 								</div>
-								<div class="contacts-body-row stretch">
-									<div class="contacts-body-icon">
-										<img src="img/main/footer/f5.svg" alt="phone">
-									</div>
-									<div class="contacts-body-text">+1 (603) 555-0123</div>
+								<div class="contacts-body-row">
+									<a href="tel: 1 603 555-0123" class="stretch">
+										<div class="contacts-body-icon">
+											<img src="img/main/footer/f5.svg" alt="phone">
+										</div>
+										<div class="contacts-body-text">+1 (603) 555-0123</div>
+									</a>
 								</div>
 								<div class="contacts-body-row">
 									<div class="contacts-body-icon">
