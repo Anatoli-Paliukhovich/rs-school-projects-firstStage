@@ -440,7 +440,6 @@ body {
 	border-radius: 20px;
 	object-fit: cover;
 	transition: 0.5s;
-	cursor: pointer;
 }
 
 .gallery__item:hover.gallery__item img {
