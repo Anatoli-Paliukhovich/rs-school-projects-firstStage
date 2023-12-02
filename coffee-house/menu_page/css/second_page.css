@@ -39,6 +39,7 @@ a,
 a:hover,
 a:visited {
 	text-decoration: none;
+	cursor: default;
 }
 
 h1,
@@ -113,6 +114,10 @@ body._lock {
 	z-index: 100;
 }
 
+.header__logo:hover {
+	cursor: pointer;
+}
+
 .header__menu {}
 
 .menu__list {
@@ -126,6 +131,10 @@ body._lock {
 
 .menu__link {
 	color: #403F3D;
+}
+
+.menu__link:hover {
+	cursor: pointer;
 }
 
 .header__icon {
@@ -296,6 +305,7 @@ body._lock {
 }
 
 .card__column {
+	display: flex;
 	padding: 0px 20px;
 	flex: 0 1 25%;
 }
@@ -306,7 +316,6 @@ body._lock {
 	gap: 20px;
 	border-radius: 40px;
 	border: 1px solid #C1B6AD;
-	height: 100%;
 	transition: 0.8s;
 	cursor: pointer;
 }
@@ -316,7 +325,6 @@ body._lock {
 	position: relative;
 	overflow: hidden;
 	border-radius: 40px;
-
 }
 
 .card__image img {
@@ -423,6 +431,10 @@ body._lock {
 	stroke: rgba(64, 63, 61, 1);
 }
 
+.footer__icons-link:hover {
+	cursor: pointer;
+}
+
 .footer__contacts {
 	flex: 1 1 auto;
 	padding: 0px 0px 0px 35px;
@@ -447,7 +459,6 @@ body._lock {
 .contacts-body-row {
 	display: flex;
 	gap: 8px;
-	cursor: pointer;
 }
 
 .contacts-body-row a {
@@ -476,6 +487,10 @@ body._lock {
 
 .contacts-body-row a:hover.stretch::after {
 	width: 100%;
+}
+
+.contacts-body-row a:hover {
+	cursor: pointer;
 }
 
 .contacts-body-icon {
@@ -830,8 +845,33 @@ body._lock {
 }
 
 @media (max-width: 768px) {
+	.menu__cards {
+		padding: 0px 15px;
+	}
+
 	.card__column {
 		flex: 0 1 50%;
+		display: flex;
+	}
+
+	.card__text {
+		min-height: 72px;
+	}
+
+	.card__coffee .card__column:nth-child(5) {
+		display: none;
+	}
+
+	.card__coffee .card__column:nth-child(6) {
+		display: none;
+	}
+
+	.card__coffee .card__column:nth-child(7) {
+		display: none;
+	}
+
+	.card__coffee .card__column:nth-child(8) {
+		display: none;
 	}
 }
 
