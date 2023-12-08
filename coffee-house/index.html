@@ -32,6 +32,15 @@
 							<li class="menu__item">
 								<a href="#footer" class="menu__link stretch-line">Contact us</a>
 							</li>
+							<li class="menu__item">
+								<a href="./menu_page/second_page.html" class="header__icon2 stretch-line">
+									<div class="icon__text">Menu
+										<span class="icon__img">
+											<img width="40" height="40" src="img/header/coffee-cup.svg" alt="cup">
+										</span>
+									</div>
+								</a>
+							</li>
 						</ul>
 					</nav>
 					<a href="./menu_page/second_page.html" class="header__icon stretch-line">
@@ -40,6 +49,8 @@
 							<img src="img/header/coffee-cup.svg" alt="cup">
 						</div>
 					</a>
+					<div class="burger__menu">
+					</div>
 				</div>
 			</div>
 		</header>
@@ -59,7 +70,9 @@
 								</span></a>
 						</div>
 					</div>
-					<div class="enjoy__img"><img src="img/main/enjoy/img-hero.jpg" alt="main-picture"></div>
+					<div class="enjoy__video">
+						<video preload="auto" autoplay muted loop src="video/video.mp4">
+					</div>
 				</div>
 			</section>
 			<section id="favourite" class="main__favourite favourite">
@@ -73,26 +86,41 @@
 									stroke-linejoin="round" />
 							</svg>
 						</div>
-						<div class="favourite__slider">
-							<div class="favourite__slider-image">
-								<img src="img/main/favorite/coffee-slider-1.png" alt="coffee">
+						<div class="favourite__slider-wrapper">
+							<div class="favourite__slide active">
+								<div class="favourite__slide-content">
+									<div class="favourite__slide-image">
+										<img src="img/main/favorite/coffee-slider-1.png" alt="coffee">
+									</div>
+									<h3 class="favourite__slide-title ttl">S’mores Frappuccino</h3>
+									<div class="favourite__slide-description descr">This new drink takes an espresso and mixes it
+										with
+										brown sugar and cinnamon before being topped with oat milk.</div>
+									<div class="favourite__slide-price price">$5.50</div>
+								</div>
 							</div>
-							<h3 class="favourite__slider-title ttl">S’mores Frappuccino</h3>
-							<div class="favourite__slider-description descr">This new drink takes an espresso and mixes it with
-								brown sugar and cinnamon before being topped with oat milk.</div>
-							<div class="favourite__slider-price price">$5.50</div>
-							<div class="favourite__slider-btns">
-								<ul class="favourite__slider-btns-list">
-									<li class="favourite__slider-btns-item slider-btns-item-1">
-										<a href="" class="favourite__slider-btns-link"></a>
-									</li>
-									<li class="favourite__slider-btns-item">
-										<a href="" class="favourite__slider-btns-link"></a>
-									</li>
-									<li class="favourite__slider-btns-item">
-										<a href="" class="favourite__slider-btns-link"></a>
-									</li>
-								</ul>
+							<div class="favourite__slide">
+								<div class="favourite__slide-content">
+									<div class="favourite__slide-image">
+										<img src="img/main/favorite/coffee-slider-2.png" alt="Macchiato">
+									</div>
+									<h3 class="favourite__slide-title ttl">Caramel Macchiato</h3>
+									<div class="favourite__slide-description descr">Fragrant and unique classic espresso with
+										rich
+										caramel-peanut syrup, with cream under whipped thick foam.</div>
+									<div class="favourite__slide-price price">$5.00</div>
+								</div>
+							</div>
+							<div class="favourite__slide">
+								<div class="favourite__slide-content">
+									<div class="favourite__slide-image">
+										<img src="img/main/favorite/coffee-slider-3.png" alt="Icecoffee">
+									</div>
+									<h3 class="favourite__slide-title ttl">Ice coffee</h3>
+									<div class="favourite__slide-description descr">A popular summer drink that tones and
+										invigorates. Prepared from coffee, milk and ice.</div>
+									<div class="favourite__slide-price price">$4.50</div>
+								</div>
 							</div>
 						</div>
 						<div class="favourite__arrow-right">
@@ -102,6 +130,11 @@
 									stroke-linejoin="round" />
 							</svg>
 						</div>
+					</div>
+					<div class="favourite__slider-btns">
+						<div class="favourite__slider-btn active"><span id="line"></span></div>
+						<div class="favourite__slider-btn"><span id="line"></span></div>
+						<div class="favourite__slider-btn"><span id="line"></span></div>
 					</div>
 				</div>
 			</section>
@@ -192,7 +225,7 @@
 				<div class="footer__container">
 					<div class="footer__body">
 						<div class="footer__sip">
-							<h2 class="footer__sip-title title">Sip, Savor, Smile. <br> <span class="title-decoration">It’s
+							<h2 class="footer__sip-title title">Sip, Savor, Smile. <span class="title-decoration">It’s
 									coffee time!</span></h2>
 							<ul class="footer__icons-list">
 								<li class="footer__icons-item">
@@ -245,7 +278,7 @@
 										<div class="contacts-body-icon">
 											<img src="img/main/footer/f4.svg" alt="location">
 										</div>
-										<div class="contacts-body-text">8558 Green Rd., LA</div>
+										<div class="contacts-body-text">8558 Green Rd., &nbsp; LA</div>
 									</a>
 								</div>
 								<div class="contacts-body-row">
