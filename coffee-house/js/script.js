@@ -59,7 +59,6 @@ function nextSlide() {
 		i = 0;
 		currentSlide(i);
 		currentBtn(i);
-		increaseLineWidth()
 	} else {
 		i++;
 		currentSlide(i);

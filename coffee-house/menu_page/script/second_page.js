@@ -67,7 +67,7 @@ function addCoffeeProd() {
 		const prodPrice = card.price;
 
 		let template = `
-			<div class="card__column" id="${prodId}">
+			<div class="card__column card__column-coffee" id="${prodId}">
 				<div class="card__item">
 					<div class="card__image">
 						<img src="${prodUrl}" alt="${prodTitle}">
@@ -100,7 +100,7 @@ function addTeaProd() {
 		const prodPrice = card.price;
 
 		let template = `
-			<div class="card__column" id="${prodId}">
+			<div class="card__column card__column-tea" id="${prodId}">
 				<div class="card__item">
 					<div class="card__image">
 						<img src="${prodUrl}" alt="${prodTitle}">
@@ -132,7 +132,7 @@ function addDessertProd() {
 		const prodPrice = card.price;
 
 		let template = `
-			<div class="card__column" id="${prodId}">
+			<div class="card__column card__column-dessert" id="${prodId}">
 				<div class="card__item">
 					<div class="card__image">
 						<img src="${prodUrl}" alt="${prodTitle}">
@@ -244,26 +244,24 @@ cardLinks.forEach(function (card, index) {
 		const sBtn = document.querySelector('.size__button-s');
 		const mBtn = document.querySelector('.size__button-m');
 		const lBtn = document.querySelector('.size__button-l');
-		let sSize;
-		let mSize;
-		let lSize;
+
 		const popupBtnsAdd = document.querySelectorAll('.additive__btn');
 		sBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeSCost).toFixed(2));
-			sSize = totalPrice.innerHTML;
+			let sSize = totalPrice.innerHTML;
 			console.log(sSize);
 			popupBtnsAdd.forEach(btn => {
-				if(btn.classList.contains('active')) {
+				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
 				}
 			})
 		})
 		mBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeMCost).toFixed(2));
-			mSize = totalPrice.innerHTML;
+			let mSize = totalPrice.innerHTML;
 			console.log(mSize);
 			popupBtnsAdd.forEach(btn => {
-				if(btn.classList.contains('active')) {
+				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
 				}
 			})
@@ -271,47 +269,24 @@ cardLinks.forEach(function (card, index) {
 		})
 		lBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeLCost).toFixed(2));
-			lSize = totalPrice.innerHTML;
+			let lSize = totalPrice.innerHTML;
 			console.log(lSize);
 			popupBtnsAdd.forEach(btn => {
-				if(btn.classList.contains('active')) {
+				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
 				}
 			})
 
 		})
-		const addBtn1 = document.querySelector('.additive__button-1');
-		const addBtn2 = document.querySelector('.additive__button-2');
-		const addBtn3 = document.querySelector('.additive__button-3');
-
-		function chooseAdditives() {
-			const popupBtnsAdd = document.querySelectorAll('.additive__btn');
-			if (popupBtnsAdd) {
-				popupBtnsAdd.forEach(btn => {
-					btn.addEventListener('click', function (e) {
-						btn.classList.toggle('active');
-						if (btn.classList.contains('active')) {
-							const addit = +totalPrice.innerHTML.slice(1);
-							totalPrice.innerHTML = `$` + (addit + 0.50).toFixed(2);
-						}
-						else if (!btn.classList.contains('active')) {
-							const addit = +totalPrice.innerHTML.slice(1);
-							totalPrice.innerHTML = `$` + (addit - 0.50).toFixed(2);
-						}
-
-					})
-				})
-			}
-		}
-
-
-
 	})
 })
 
 //Popup window
 const body = document.querySelector('body');
 const popup = document.querySelector('.popup');
+const headerBody = document.querySelector('.header__body');
+const unlock = true;
+const timeout = 800;
 cardLinks.forEach(function (link, index) {
 	link.dataset.index = index;
 	link.addEventListener('click', function (e) {
@@ -324,7 +299,7 @@ function popupCloseByClick() {
 		for (let i = 0; i < popupCloseBtns.length; i++) {
 			const popupCloseBtn = popupCloseBtns[i];
 			popupCloseBtn.addEventListener('click', function (e) {
-				popupClose(popupCloseBtn.closest('.popup'));
+				popupClose(e.target.closest('.popup'));
 			});
 		}
 	}
@@ -335,7 +310,7 @@ function popupClose(popupCloseBtn) {
 	bodyUnLock();
 }
 
-function popupOpen(e) {
+function popupOpen() {
 	popup.classList.add('active');
 	bodyLock();
 	popup.addEventListener('click', function (e) {
@@ -345,10 +320,15 @@ function popupOpen(e) {
 	})
 }
 function bodyLock() {
+	const scrollValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+	body.style.paddingRight = scrollValue;
+	headerBody.style.paddingRight = scrollValue;
 	body.classList.add('_lock');
 }
 
 function bodyUnLock() {
+	body.style.paddingRight = '0px';
+	headerBody.style.paddingRight = '0px';
 	body.classList.remove('_lock');
 }
 
@@ -372,14 +352,100 @@ function chooseSize() {
 	});
 }
 //Menu Cards Choose Additives
-
 function chooseAdditives() {
+	const totalPrice = document.querySelector('.body__total-prise');
 	const popupBtnsAdd = document.querySelectorAll('.additive__btn');
 	if (popupBtnsAdd) {
 		popupBtnsAdd.forEach(btn => {
 			btn.addEventListener('click', function (e) {
 				btn.classList.toggle('active');
+				if (btn.classList.contains('active')) {
+					let addit = +totalPrice.innerHTML.slice(1);
+					totalPrice.innerHTML = `$` + (addit + 0.50).toFixed(2);
+				}
+				else if (!btn.classList.contains('active')) {
+					let addit = +totalPrice.innerHTML.slice(1);
+					totalPrice.innerHTML = `$` + (addit - 0.50).toFixed(2);
+				}
+
 			})
 		})
 	}
+}
+
+//Добавление товаров по клику Load more Coffee
+const cardItemsCoffee = document.querySelectorAll('.card__row .card__column-coffee');
+const cardContainerCoffee = document.querySelector('.card__coffee');
+
+if (coffeeCards.length > 4) {
+	const refreshBtnCoffee = document.createElement('div');
+	refreshBtnCoffee.classList.add('menu__refresh-btn');
+	refreshBtnCoffee.classList.add('active');
+	refreshBtnCoffee.innerHTML = `
+	<img src="img/main/refresh.svg" alt="morecoffee">
+	`;
+	cardContainerCoffee.append(refreshBtnCoffee);
+}
+const refreshBtnCoffee = document.querySelector('.menu__refresh-btn');
+if (refreshBtnCoffee) {
+	refreshBtnCoffee.addEventListener('click', loadMoreCoffee);
+}
+function loadMoreCoffee() {
+	refreshBtnCoffee.classList.remove('active');
+	cardItemsCoffee.forEach(item => {
+		item.style.cssText = `
+		display: flex;
+		`
+	})
+}
+//Добавление товаров по клику Load more Tea
+const cardItemsTea = document.querySelectorAll('.card__row .card__column-tea');
+const cardContainerTea = document.querySelector('.card__tea');
+
+const refreshBtnTea = document.createElement('div');
+refreshBtnTea.classList.add('menu__refresh-btn');
+refreshBtnTea.innerHTML = `
+	<img src="img/main/refresh.svg" alt="moretea">
+	`;
+cardContainerTea.append(refreshBtnTea);
+
+if (teaCards.length > 4) {
+	refreshBtnTea.classList.add('active');
+}
+
+if (refreshBtnTea) {
+	refreshBtnTea.addEventListener('click', loadMoreTea);
+}
+function loadMoreTea() {
+	refreshBtnTea.classList.remove('active');
+	cardItemsTea.forEach(item => {
+		item.style.cssText = `
+		display: flex;
+		`
+	})
+}
+//Добавление товаров по клику Load more Dessert
+const cardItemsDessert = document.querySelectorAll('.card__row .card__column-dessert');
+const cardContainerDessert = document.querySelector('.card__dessert');
+
+const refreshBtnDessert = document.createElement('div');
+refreshBtnDessert.classList.add('menu__refresh-btn');
+refreshBtnDessert.innerHTML = `
+	<img src="img/main/refresh.svg" alt="moredessert">
+	`;
+cardContainerDessert.append(refreshBtnDessert);
+
+if (dessertCards.length > 4) {
+	refreshBtnDessert.classList.add('active');
+}
+if (refreshBtnDessert) {
+	refreshBtnDessert.addEventListener('click', loadMoreDessert);
+}
+function loadMoreDessert() {
+	refreshBtnDessert.classList.remove('active');
+	cardItemsDessert.forEach(item => {
+		item.style.cssText = `
+		display: flex;
+		`
+	})
 }
