@@ -111,8 +111,6 @@ body._lock {
 	z-index: 50;
 }
 
-.header__container {}
-
 .header__body {
 	display: flex;
 	justify-content: space-between;
@@ -129,8 +127,6 @@ body._lock {
 	position: relative;
 	z-index: 15;
 }
-
-.header__menu {}
 
 .menu__list {
 	display: flex;
@@ -185,8 +181,6 @@ body._lock {
 .main__enjoy {
 	padding: 100px 0px;
 }
-
-.enjoy__container {}
 
 .enjoy__body {
 	display: flex;
@@ -260,10 +254,6 @@ body._lock {
 .main__favourite {
 	padding: 0px 0px 100px 0px;
 }
-
-.favourite {}
-
-.favourite__container {}
 
 .favourite__title:not(:last-child) {
 	margin: 0px 0px 40px 0px;
@@ -438,18 +428,10 @@ body._lock {
 	padding: 0px 0px 100px 0px;
 }
 
-.about__container {}
-
 .about__title:not(:last-child) {
 	margin: -2px 0px 40px 0px;
 	text-align: left;
 }
-
-.title {}
-
-.title-decoration {}
-
-.about__gallery {}
 
 .gallery {
 	display: grid;
@@ -478,8 +460,6 @@ body._lock {
 	object-fit: cover;
 	transition: 0.5s;
 }
-
-.gallery__item3 {}
 
 .gallery__item-big {
 	grid-row: span 2;
@@ -537,12 +517,6 @@ body._lock {
 	transition: 0.5s;
 }
 
-.btn-icon {}
-
-.btn-apple-txt {}
-
-.btn-txt {}
-
 .btn-title {
 	color: #403F3D;
 	text-align: left;
@@ -559,8 +533,6 @@ body._lock {
 	line-height: 150%;
 }
 
-.btn-google-txt {}
-
 .mobileapp__image {
 	flex: 1 1 630px;
 }
@@ -572,12 +544,6 @@ body._lock {
 }
 
 /*------------------Footer-----------------------------*/
-.footer {}
-
-.footer__content {}
-
-.footer__container {}
-
 .footer__body {
 	border-radius: 40px;
 	padding: 100px;
@@ -599,10 +565,6 @@ body._lock {
 	text-align: left;
 	color: #E1D4C9;
 }
-
-.title {}
-
-.title-decoration {}
 
 .footer__icons-list {
 	display: flex;
@@ -940,7 +902,7 @@ body._lock {
 	}
 }
 
-@media (min-width: 768.1px) {
+@media (hover: hover) {
 	.enjoy__button:hover .enjoy__btn {
 		padding: 20px 78px 20px 75px;
 	}
