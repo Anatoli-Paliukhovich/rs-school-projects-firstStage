@@ -249,7 +249,6 @@ cardLinks.forEach(function (card, index) {
 		sBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeSCost).toFixed(2));
 			let sSize = totalPrice.innerHTML;
-			console.log(sSize);
 			popupBtnsAdd.forEach(btn => {
 				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
@@ -259,7 +258,6 @@ cardLinks.forEach(function (card, index) {
 		mBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeMCost).toFixed(2));
 			let mSize = totalPrice.innerHTML;
-			console.log(mSize);
 			popupBtnsAdd.forEach(btn => {
 				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
@@ -270,7 +268,6 @@ cardLinks.forEach(function (card, index) {
 		lBtn.addEventListener('click', function () {
 			totalPrice.innerHTML = `$` + ((+prodPrice + +prodSizeLCost).toFixed(2));
 			let lSize = totalPrice.innerHTML;
-			console.log(lSize);
 			popupBtnsAdd.forEach(btn => {
 				if (btn.classList.contains('active')) {
 					btn.classList.remove('active');
