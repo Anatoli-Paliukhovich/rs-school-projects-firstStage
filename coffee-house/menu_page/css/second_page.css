@@ -490,10 +490,10 @@ body._lock {
 .popup__coffee {}
 
 .popup {
+	padding: 15px 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -522,7 +522,6 @@ body._lock {
 }
 
 .popup__body {
-	margin: 30px 15px;
 	border-radius: 40px;
 	max-width: 800px;
 	background: #E1D4C9;
@@ -829,6 +828,10 @@ body._lock {
 	.main__menu {
 		padding: 100px 0px 60px 0px;
 	}
+	.popup__body {
+		max-width: 691.5px;
+	}
+
 	.menu__cards {
 		padding: 0px 15px;
 	}
@@ -971,6 +974,22 @@ body._lock {
 		transform: rotate(45deg) translate(0, 50%);
 	}
 }
+@media (max-width: 700px) {
+	.popup__body {
+		max-width: 691.5px;
+	}
+	.popup__content-image {
+		display: none;
+	}
+}
+@media (max-width: 400px) {
+	.popup__body {
+		max-width: 342px;
+	}
+	.popup__content-image {
+		display: none;
+	}
+}
 
 @media (max-width: 687px) {
 	[class*=__container] {
@@ -1000,9 +1019,6 @@ body._lock {
 		height: 100%;
 	}
 
-	.popup__content-image {
-		display: none;
-	}
 }
 
 @media (max-width: 480px) {

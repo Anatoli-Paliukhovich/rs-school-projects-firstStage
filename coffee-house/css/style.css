@@ -298,6 +298,7 @@ body._lock {
 
 .favourite__slider-wrapper {
 	display: flex;
+	flex-direction: column;
 }
 
 .favourite__slide {
@@ -307,8 +308,8 @@ body._lock {
 
 .favourite__slide.active {
 	display: block;
-	animation: fade 0.5s;
-	transition: all 0.5s ease 0s;
+	animation: fade 0.7s;
+	transition: all 0.7s ease 0s;
 }
 
 .favourite__slide-content {
@@ -319,7 +320,7 @@ body._lock {
 
 @keyframes fade {
 	0% {
-		opacity: 0.4;
+		opacity: 0.3;
 	}
 
 	100% {
@@ -390,20 +391,40 @@ body._lock {
 	cursor: pointer;
 	position: relative;
 }
-#line {
+
+.slider-btn-fill {}
+
+.filled {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-color: red;
+	background-color: #665F55;
 	border-radius: 100px;
 	height: 4px;
 	cursor: pointer;
 	width: 0%;
 	transition: width 0.5s ease-in-out;
- }
+	animation: bar 5s linear;
+}
 
-.favourite__slider-btn.active {
-	background: #665F55;
+@media (hover: hover) {
+	.favourite__slider-wrapper:hover .filled {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes bar {
+	0% {
+		width: 0%;
+	}
+
+	50% {
+		width: 50%;
+	}
+
+	100% {
+		width: 100%;
+	}
 }
 
 .favourite__arrow-right {
