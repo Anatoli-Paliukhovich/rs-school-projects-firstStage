@@ -29,10 +29,13 @@ const prevBtn = document.querySelector('.favourite__arrow-left');
 const nextBtn = document.querySelector('.favourite__arrow-right');
 const slides = document.querySelectorAll('.favourite__slide');
 const btns = document.querySelectorAll('.favourite__slider-btn');
+const btnsFill = document.querySelectorAll('.slider-btn-fill');
+
 
 let i = 0;
 let paused = false;
-let setTime;
+let setTime = 5000;
+
 function currentSlide(n) {
 	for (let slide of slides) {
 		slide.classList.remove('active');
@@ -44,17 +47,25 @@ function currentBtn(n) {
 		btn.classList.remove('active');
 	}
 	btns[n].classList.add('active');
-
 }
+function currentBtnFill(n) {
+	for (let btnFill of btnsFill) {
+		btnFill.classList.remove('filled');
+	}
+	btnsFill[n].classList.add('filled');
+}
+
 function prevSlide() {
 	if (i == 0) {
 		i = slides.length - 1;
 		currentSlide(i);
 		currentBtn(i);
+		currentBtnFill(i);
 	} else {
 		i--;
 		currentSlide(i);
 		currentBtn(i);
+		currentBtnFill(i);
 	}
 }
 function nextSlide() {
@@ -62,10 +73,12 @@ function nextSlide() {
 		i = 0;
 		currentSlide(i);
 		currentBtn(i);
+		currentBtnFill(i);
 	} else {
 		i++;
 		currentSlide(i);
 		currentBtn(i);
+		currentBtnFill(i);
 	}
 }
 btns.forEach(function (btn, index) {
@@ -73,10 +86,20 @@ btns.forEach(function (btn, index) {
 		i = index;
 		currentSlide(i);
 		currentBtn(i);
+		currentBtnFill(i);
 	})
 });
-prevBtn.addEventListener('click', prevSlide);
-nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', function(e) {
+	clearInterval(setTime);
+	prevSlide();
+	runSlider();
+});
+nextBtn.addEventListener('click', function(e) {
+	clearInterval(setTime);
+	nextSlide();
+	runSlider();
+});
+
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -110,11 +133,12 @@ sliderWrapper.addEventListener("mouseenter", function () {
 sliderWrapper.addEventListener("mouseleave", function () {
 	paused = false;
 });
+
 function runSlider() {
 	setTime = setInterval(function () {
 		if (!paused) {
 			nextSlide();
 		}
-	}, 7000);
+	}, 5000);
 }
 runSlider();
