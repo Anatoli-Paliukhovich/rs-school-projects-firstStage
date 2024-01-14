@@ -109,3 +109,92 @@ popupImg.classList.add("popup__image");
 popupTitle.classList.add("popup__title");
 popupText.classList.add("popup__text");
 popupBtn.classList.add("popup__btn");
+
+let count = 0;
+let charArr = [];
+let randomWord;
+let randomHint;
+let correctAnswer;
+//Restart
+popupBtn.addEventListener("click", displayRandomObj);
+function restartGame() {
+  count = 0;
+  charArr = [];
+  hangmanImage.src = "img/gallow0.svg";
+  const incorrectCount = document.querySelector(
+    ".hangman__incorrect-count span"
+  );
+  incorrectCount.innerHTML = "0 / 6";
+  charList.innerHTML = "";
+  popup.classList.remove("open");
+  const disabledBtns = document.querySelectorAll("[disabled]");
+  disabledBtns.forEach((btn) => btn.removeAttribute("disabled"));
+  charList.innerHTML = Array.from(
+    { length: randomWord.length },
+    () => `<li class="char"></li>`
+  ).join("");
+}
+//Display random hint and word
+
+function displayRandomObj() {
+  const randomObj = Math.floor(Math.random() * taskList.length);
+  randomWord = taskList[randomObj].word;
+  randomHint = taskList[randomObj].hint;
+  hint.innerHTML = `Hint: ${randomHint}`;
+  correctAnswer = randomWord;
+  restartGame();
+}
+displayRandomObj();
+
+//Create dinamic keyboard
+for (let i = 97; i <= 122; i++) {
+  const keyboardBtns = document.createElement("button");
+  keyboardBtns.innerHTML = String.fromCharCode(i).toUpperCase();
+  keyboard.append(keyboardBtns);
+  keyboardBtns.addEventListener("click", function (e) {
+    return startGame(e.target.innerHTML, e.target);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key.match(String.fromCharCode(i))) {
+      return startGame(event.key.toUpperCase(), event.target);
+    }
+  });
+}
+
+function startGame(clickedChar, btn) {
+  if (correctAnswer.includes(clickedChar.toLowerCase())) {
+    correctAnswer.split("").map((char, i) => {
+      if (char.toLowerCase() === clickedChar.toLowerCase()) {
+        charArr.push(char);
+        charList.querySelectorAll(".char__list li")[i].innerHTML = char;
+        charList.querySelectorAll(".char__list li")[i].classList.add("correct");
+      }
+    });
+  } else {
+    count++;
+    const incorrectCount = document.querySelector(
+      ".hangman__incorrect-count span"
+    );
+    incorrectCount.innerHTML = `${count} / 6`;
+    hangmanImage.src = `img/gallow${count}.svg`;
+  }
+  btn.setAttribute("disabled", "");
+  if (count === 6) {
+    return showPopup(false);
+  }
+  if (charArr.length === randomWord.length) {
+    return showPopup(true);
+  }
+}
+//Show popup and finish the game
+function showPopup(win) {
+  popup.classList.add("open");
+  if (win) {
+    popupTitle.innerHTML = `You won!`;
+    popupTitle.classList.add("popup__title_green");
+  } else if (!win) {
+    popupTitle.innerHTML = `Sorry! You lost!`;
+    popupTitle.classList.remove("popup__title_green");
+  }
+  popupText.innerHTML = `Correct answer is: ${randomWord.toUpperCase()}`;
+}
