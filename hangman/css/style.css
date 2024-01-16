@@ -306,4 +306,19 @@ body {
 		font-size: calc(20px + (18 + 18) * ((100vw - 380px) / 786));
 		text-align: left;
 	}
+
+}
+
+@media (max-width: 560px) {
+	.char {
+		width: 25px;
+	}
+
+	.hangman__keyboard button {
+		font-size: 20px;
+	}
+
+	.hangman__incorrect-count span {
+		font-size: 20px;
+	}
 }

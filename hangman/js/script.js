@@ -2,6 +2,38 @@
 
 const taskList = [
   {
+    hint: "I'm a nocturnal bird known for my hooting sound.",
+    word: "owl",
+  },
+  {
+    hint: "I'm a venomous snake known for my hood.",
+    word: "cobra",
+  },
+  {
+    hint: "I'm a bird that can imitate human speech.",
+    word: "parrot",
+  },
+  {
+    hint: "I have wings and can soar high in the sky.",
+    word: "eagle",
+  },
+  {
+    hint: "I'm known for my humps and live in the desert.",
+    word: "camel",
+  },
+  {
+    hint: "I'm a reptile that can change color and blend in with my surroundings.",
+    word: "chameleon",
+  },
+  {
+    hint: "I have black and white stripes and am often associated with zebras.",
+    word: "penguin",
+  },
+  {
+    hint: "I'm a small, furry mammal that can fly and see in the dark.",
+    word: "bat",
+  },
+  {
     hint: "I'm black and white and loved all over the world.",
     word: "panda",
   },
@@ -153,11 +185,6 @@ for (let i = 97; i <= 122; i++) {
   keyboard.append(keyboardBtns);
   keyboardBtns.addEventListener("click", function (e) {
     return startGame(e.target.innerHTML, e.target);
-  });
-  document.addEventListener("keydown", function (event) {
-    if (event.key.match(String.fromCharCode(i))) {
-      return startGame(event.key.toUpperCase(), event.target);
-    }
   });
 }
 
