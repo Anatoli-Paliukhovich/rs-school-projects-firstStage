@@ -66,6 +66,12 @@ img {
 body {
 	text-align: center;
 	font-size: 24px;
+	transition: all linear 0.3s;
+}
+
+body.dark {
+	background-color: #000000e0;
+	transition: all linear 0.3s;
 }
 
 .wrapper {
@@ -76,7 +82,7 @@ body {
 .nonogram__container {
 	max-width: 1360px;
 	margin: 0 auto;
-	padding: 40px 15px 0px 15px;
+	padding: 40px 15px 20px 15px;
 	box-sizing: content-box;
 }
 
@@ -125,7 +131,6 @@ body {
 
 .nonogram__top {
 	display: flex;
-	border-bottom: 3px solid #000;
 }
 
 .top__numbers {
@@ -157,7 +162,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	min-width: 150px;
-	border-right: 2px solid #000;
 }
 
 .left__numbers-row {
@@ -167,7 +171,7 @@ body {
 	border: 1px solid yellowgreen;
 	color: green;
 	font-weight: 900px;
-	padding: 7.3px 0px;
+	padding: 7.4px 0px;
 }
 
 .left__numbers-column {
@@ -177,10 +181,11 @@ body {
 .nonogram__squares {
 	display: flex;
 	flex-wrap: wrap;
+	border: 1px solid green;
 }
 
 .squares__sqr {
-	width: 39.9px;
+	width: 39.6px;
 	height: 40px;
 	border: 0.5px solid yellowgreen;
 }
@@ -198,22 +203,6 @@ body {
 	background: url('../img/cross.png') 110%/contain no-repeat;
 }
 
-.clear__btn {
-	background-color: greenyellow;
-	font-weight: 600;
-	border-radius: 20px;
-	box-shadow: 1px 1px 2px green;
-	font-size: 18px;
-	padding: 10px;
-	margin: 10px 0px 0px 0px;
-	transition: all linear 0.3s;
-}
-
-.clear__btn:hover {
-	background-color: green;
-	box-shadow: 1px 1px 2px #000;
-	color: aliceblue;
-}
 
 /*----Popup----------------*/
 .popup {
@@ -289,4 +278,94 @@ body {
 /*----------Clock----------------*/
 .clock {
 	padding: 0px 0px 10px 0px;
+}
+
+/*----------Clear-btn----------------*/
+.nonogram__bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.clear__btn {
+	display: flex;
+	color: green;
+	background-color: greenyellow;
+	font-weight: 600;
+	border-radius: 20px;
+	box-shadow: 1px 1px 2px green;
+	font-size: 18px;
+	padding: 10px;
+	margin: 20px 0px 0px 0px;
+	transition: all linear 0.3s;
+}
+
+.clear__btn:hover {
+	background-color: green;
+	box-shadow: 1px 1px 2px #000;
+	color: greenyellow;
+}
+
+/*----------Dark-mode----------------*/
+
+
+.mode__body {}
+
+.mode__input {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.mode__label {
+	display: inline-flex;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px 0px 0px 0px;
+	width: 90px;
+	height: 45px;
+	padding: 7px;
+	background-color: green;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.mode__dark {
+	width: 30px;
+	height: 30px;
+	display: block;
+	background: url('../img/moon.png') 100%/contain no-repeat;
+}
+
+.mode__light {
+	width: 30px;
+	height: 30px;
+	display: block;
+	background: url('../img/sun.png') 100%/contain no-repeat;
+}
+
+.mode__circle {
+	width: 37px;
+	height: 37px;
+	display: block;
+	position: absolute;
+	top: 4px;
+	left: 3px;
+	background: url('../img/circle.png') 100%/contain no-repeat;
+	transition: all ease 0.5s;
+}
+
+.mode__input:checked+.mode__label {
+	background-color: green;
+	transition: all ease 0.5s;
+
+}
+
+.mode__input:checked+.mode__label:hover {
+	background-color: greenyellow;
+	transition: all ease 1s;
+}
+
+.mode__input:checked+.mode__label .mode__circle {
+	transform: translate(45px, 0);
 }

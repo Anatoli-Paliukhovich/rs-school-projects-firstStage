@@ -13,10 +13,6 @@ const nonogram = document.createElement("div");
 nonogram.classList.add("nonogram");
 nonogramContainer.append(nonogram);
 
-const nonogramBtnRestart = document.createElement("button");
-nonogramBtnRestart.classList.add("clear__btn");
-nonogramBtnRestart.innerHTML = `Reset game`;
-bodyElement.append(nonogramBtnRestart);
 //Верхняя часть игры
 const nonogramTop = document.createElement("div");
 nonogramTop.classList.add("nonogram__top");
@@ -28,6 +24,35 @@ const topNumbers = document.createElement("div");
 topNumbers.classList.add("top__numbers");
 nonogramTop.append(topNumbers);
 
+const nonogramBottom = document.createElement("div");
+nonogramBottom.classList.add("nonogram__bottom");
+nonogramContainer.append(nonogramBottom);
+const nonogramBtnRestart = document.createElement("button");
+nonogramBtnRestart.classList.add("clear__btn");
+nonogramBtnRestart.innerHTML = `Reset game`;
+nonogramBottom.append(nonogramBtnRestart);
+//Dark mode
+const modeBody = document.createElement("div");
+modeBody.classList.add("mode__body");
+nonogramBottom.append(modeBody);
+const modeInput = document.createElement("input");
+modeInput.classList.add("mode__input");
+modeInput.setAttribute("id", "mode__input");
+modeInput.setAttribute("type", "checkbox");
+modeBody.append(modeInput);
+const modeLabel = document.createElement("label");
+modeLabel.classList.add("mode__label");
+modeLabel.setAttribute("for", "mode__input");
+modeBody.append(modeLabel);
+const modeDark = document.createElement("span");
+modeDark.classList.add("mode__dark");
+modeLabel.append(modeDark);
+const modeLight = document.createElement("span");
+modeLight.classList.add("mode__light");
+modeLabel.append(modeLight);
+const modeCircle = document.createElement("span");
+modeCircle.classList.add("mode__circle");
+modeLabel.append(modeCircle);
 //Попап
 const popup = document.createElement("div");
 const popupBody = document.createElement("div");
@@ -63,6 +88,8 @@ const winGame = new Audio();
 winGame.src = `../audio/win.mp3`;
 const resetGame = new Audio();
 resetGame.src = `../audio/reset.mp3`;
+const changeModePlay = new Audio();
+changeModePlay.src = `../audio/mode.mp3`;
 //Секундомер
 const clock = document.createElement("div");
 clock.classList.add("clock");
@@ -271,4 +298,11 @@ function showTimeResults() {
 function showResults() {
   saveTimeResults(currentTime);
   showTimeResults();
+}
+
+//Change mode
+modeInput.addEventListener("click", changeMode);
+function changeMode() {
+  bodyElement.classList.toggle("dark");
+  changeModePlay.play();
 }
