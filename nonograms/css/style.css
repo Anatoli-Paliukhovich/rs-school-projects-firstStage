@@ -61,3 +61,232 @@ ul li {
 img {
 	vertical-align: top;
 }
+
+/*------------------------------------*/
+body {
+	text-align: center;
+	font-size: 24px;
+}
+
+.wrapper {
+	display: flex;
+	overflow: hidden;
+}
+
+.nonogram__container {
+	max-width: 1360px;
+	margin: 0 auto;
+	padding: 40px 15px 0px 15px;
+	box-sizing: content-box;
+}
+
+.nonogram {
+	display: inline-flex;
+	flex-direction: column;
+	border: 2px solid yellowgreen;
+	width: 353.8px;
+}
+
+.top__square {
+	width: 149.5px;
+	height: 149.5px;
+	border: 1px solid yellowgreen;
+	background-color: yellowgreen;
+	display: flex;
+	flex-direction: column;
+
+
+}
+
+.score {
+	padding: 5px;
+	font-size: 16px;
+}
+
+.score:first-child {
+	background: url('../img/1.png') 10%/contain no-repeat;
+}
+
+.score:nth-child(2) {
+	background: url('../img/2.png') 10%/contain no-repeat;
+}
+
+.score:nth-child(3) {
+	background: url('../img/3.png') 10%/contain no-repeat;
+}
+
+.score:nth-child(4) {
+	background: url('../img/4.png') 10%/contain no-repeat;
+}
+
+.score:nth-child(5) {
+	background: url('../img/5.png') 10%/contain no-repeat;
+}
+
+.nonogram__top {
+	display: flex;
+	border-bottom: 3px solid #000;
+}
+
+.top__numbers {
+	display: flex;
+
+}
+
+.top__numbers-row {
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	justify-content: flex-end;
+	border: 1px solid yellowgreen;
+	color: green;
+	font-weight: 900px;
+	padding: 0px 13.4px;
+
+}
+
+.top__numbers-column {
+	margin: 5px 0px 5px 0px;
+}
+
+.nonogram__left {
+	display: flex;
+}
+
+.left__numbers {
+	display: flex;
+	flex-direction: column;
+	min-width: 150px;
+	border-right: 2px solid #000;
+}
+
+.left__numbers-row {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-end;
+	border: 1px solid yellowgreen;
+	color: green;
+	font-weight: 900px;
+	padding: 7.3px 0px;
+}
+
+.left__numbers-column {
+	margin: 0px 5px 0px 5px;
+}
+
+.nonogram__squares {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.squares__sqr {
+	width: 39.9px;
+	height: 40px;
+	border: 0.5px solid yellowgreen;
+}
+
+.squares__sqr:hover {
+	box-shadow: 0px 0px 8px 1px green;
+	cursor: pointer;
+}
+
+.squares__sqr.checked {
+	background-color: #000;
+}
+
+.squares__sqr.crossed {
+	background: url('../img/cross.png') 110%/contain no-repeat;
+}
+
+.clear__btn {
+	background-color: greenyellow;
+	font-weight: 600;
+	border-radius: 20px;
+	box-shadow: 1px 1px 2px green;
+	font-size: 18px;
+	padding: 10px;
+	margin: 10px 0px 0px 0px;
+	transition: all linear 0.3s;
+}
+
+.clear__btn:hover {
+	background-color: green;
+	box-shadow: 1px 1px 2px #000;
+	color: aliceblue;
+}
+
+/*----Popup----------------*/
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.6s ease-in-out 0s;
+
+}
+
+.popup.open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup.open .popup__body {
+	transform: perspective(800px) translate(0px, 0%) rotateX(0deg);
+
+}
+
+.popup__body {
+	display: flex;
+	min-height: 100%;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.6s ease-in-out 0s;
+	padding: 30px 15px;
+	transform: perspective(800px) translate(0px, -100%) rotateX(45deg);
+}
+
+.popup__content {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	border-radius: 20px;
+	background-color: #fff;
+	min-width: 300px;
+	padding: 30px;
+}
+
+.popup__title.popup__title_green {
+	color: green;
+}
+
+.popup__text {
+	font-size: 18px;
+	text-align: center;
+	font-weight: 600;
+	color: green;
+}
+
+.popup__btn {
+	background-color: greenyellow;
+	font-weight: 600;
+	border-radius: 20px;
+	box-shadow: 1px 1px 2px green;
+	font-size: 18px;
+	padding: 10px;
+	transition: all linear 0.3s;
+}
+
+.popup__btn:hover {
+	background-color: green;
+	box-shadow: 1px 1px 2px #000;
+	color: aliceblue;
+}
+
+/*----------Clock----------------*/
+.clock {
+	padding: 0px 0px 10px 0px;
+}
