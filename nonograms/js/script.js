@@ -13,17 +13,7 @@ const nonogram = document.createElement("div");
 nonogram.classList.add("nonogram");
 nonogramContainer.append(nonogram);
 
-//Верхняя часть игры
-const nonogramTop = document.createElement("div");
-nonogramTop.classList.add("nonogram__top");
-nonogram.append(nonogramTop);
-const topSquare = document.createElement("div");
-topSquare.classList.add("top__square");
-nonogramTop.append(topSquare);
-const topNumbers = document.createElement("div");
-topNumbers.classList.add("top__numbers");
-nonogramTop.append(topNumbers);
-
+//Кнопки в нижней части игры
 const nonogramBottom = document.createElement("div");
 nonogramBottom.classList.add("nonogram__bottom");
 nonogramContainer.append(nonogramBottom);
@@ -31,6 +21,7 @@ const nonogramBtnRestart = document.createElement("button");
 nonogramBtnRestart.classList.add("clear__btn");
 nonogramBtnRestart.innerHTML = `Reset game`;
 nonogramBottom.append(nonogramBtnRestart);
+
 //Dark mode
 const modeBody = document.createElement("div");
 modeBody.classList.add("mode__body");
@@ -53,6 +44,7 @@ modeLabel.append(modeLight);
 const modeCircle = document.createElement("span");
 modeCircle.classList.add("mode__circle");
 modeLabel.append(modeCircle);
+
 //Попап
 const popup = document.createElement("div");
 const popupBody = document.createElement("div");
@@ -90,25 +82,23 @@ const resetGame = new Audio();
 resetGame.src = `../audio/reset.mp3`;
 const changeModePlay = new Audio();
 changeModePlay.src = `../audio/mode.mp3`;
+
 //Секундомер
 const clock = document.createElement("div");
 clock.classList.add("clock");
 clock.innerHTML = `00m:00s`;
 nonogramContainer.prepend(clock);
-//Числа сверху
-const topNumData = [[5], [1], [1], [1], [5]];
 
-topNumData.forEach((array) => {
-  const topNumRow = document.createElement("div");
-  topNumRow.classList.add("top__numbers-row");
-  array.forEach((number) => {
-    const topNumCol = document.createElement("div");
-    topNumCol.classList.add("top__numbers-column");
-    topNumCol.innerHTML = number;
-    topNumRow.append(topNumCol);
-  });
-  topNumbers.append(topNumRow);
-});
+//Верхняя часть игры
+const nonogramTop = document.createElement("div");
+nonogramTop.classList.add("nonogram__top");
+nonogram.append(nonogramTop);
+const topSquare = document.createElement("div");
+topSquare.classList.add("top__square");
+nonogramTop.append(topSquare);
+const topNumbers = document.createElement("div");
+topNumbers.classList.add("top__numbers");
+nonogramTop.append(topNumbers);
 
 //Левая часть игры
 const nonogramLeft = document.createElement("div");
@@ -118,8 +108,9 @@ const leftNumbers = document.createElement("div");
 leftNumbers.classList.add("left__numbers");
 nonogramLeft.append(leftNumbers);
 
-//Числа слева
-const leftNumData = [
+//Числа
+let topNumData = [[5], [1], [1], [1], [5]];
+let leftNumData = [
   [1, 1],
   [2, 2],
   [1, 1, 1],
@@ -127,17 +118,59 @@ const leftNumData = [
   [1, 1],
 ];
 
-leftNumData.forEach((array) => {
-  const leftNumRow = document.createElement("div");
-  leftNumRow.classList.add("left__numbers-row");
-  array.forEach((number) => {
-    const leftNumCol = document.createElement("div");
-    leftNumCol.classList.add("left__numbers-column");
-    leftNumCol.innerHTML = number;
-    leftNumRow.append(leftNumCol);
+//Генерация чисел для игры
+function generateNonogram(topNumData, leftNumData) {
+  leftNumData.forEach((array) => {
+    const leftNumRow = document.createElement("div");
+    leftNumRow.classList.add("left__numbers-row");
+    array.forEach((number) => {
+      const leftNumCol = document.createElement("div");
+      leftNumCol.classList.add("left__numbers-column");
+      leftNumCol.innerHTML = number;
+      leftNumRow.append(leftNumCol);
+    });
+    leftNumbers.append(leftNumRow);
   });
-  leftNumbers.append(leftNumRow);
-});
+
+  topNumData.forEach((array) => {
+    const topNumRow = document.createElement("div");
+    topNumRow.classList.add("top__numbers-row");
+    array.forEach((number) => {
+      const topNumCol = document.createElement("div");
+      topNumCol.classList.add("top__numbers-column");
+      topNumCol.innerHTML = number;
+      topNumRow.append(topNumCol);
+    });
+    topNumbers.append(topNumRow);
+  });
+}
+generateNonogram(topNumData, leftNumData);
+
+//Кнопки для разных макетов
+const btns5x5 = document.createElement("div");
+btns5x5.classList.add("nonogram__btns5x5");
+nonogramContainer.prepend(btns5x5);
+
+const mBtn = document.createElement("div");
+mBtn.classList.add("m__btn", "button");
+mBtn.innerHTML = `M`;
+btns5x5.append(mBtn);
+const dogBtn = document.createElement("div");
+dogBtn.classList.add("dog__btn", "button");
+dogBtn.innerHTML = `Dog`;
+btns5x5.append(dogBtn);
+const clockBtn = document.createElement("div");
+clockBtn.classList.add("clock__btn", "button");
+clockBtn.innerHTML = `Clock`;
+btns5x5.append(clockBtn);
+const planeBtn = document.createElement("div");
+planeBtn.classList.add("plane__btn", "button");
+planeBtn.innerHTML = `Plane`;
+btns5x5.append(planeBtn);
+const chessBtn = document.createElement("div");
+chessBtn.classList.add("chess__btn", "button");
+chessBtn.innerHTML = `Chess`;
+btns5x5.append(chessBtn);
 
 //Игровое поле
 const nonogramSquares = document.createElement("div");
@@ -188,7 +221,7 @@ allSquares.forEach((square) => {
   });
 });
 //Проверка нажатия правильных квадратиков
-const correctSquaresNum = 13;
+let correctSquaresNum = 13;
 function correctSquares() {
   const checkedActiveSquares = document.querySelectorAll(
     ".squares__sqr.active.checked"
@@ -230,13 +263,16 @@ function showPopup() {
 }
 //Скрытие попапа и рестарт игры
 popupBtn.addEventListener("click", closePopup);
-
-function closePopup() {
-  popup.classList.remove("open");
-  resetTime();
+//Удаление классов 'checked' и "crossed"
+function removeCheckedCrossed() {
   for (let i = 0; i < allSquares.length; i++) {
     allSquares[i].classList.remove("checked", "crossed");
   }
+}
+function closePopup() {
+  popup.classList.remove("open");
+  resetTime();
+  removeCheckedCrossed();
 }
 //Секундомер
 let milliseconds = 0;
@@ -305,4 +341,184 @@ modeInput.addEventListener("click", changeMode);
 function changeMode() {
   bodyElement.classList.toggle("dark");
   changeModePlay.play();
+}
+
+//Генерация цифр и сетки по клику
+//Удаление цифр
+function removeAllNum(leftNumbers, topNumbers) {
+  leftNumbers = document.querySelectorAll(".left__numbers-row");
+  leftNumbers.forEach((row) => {
+    row.remove();
+  });
+  topNumbers = document.querySelectorAll(".top__numbers-row");
+  topNumbers.forEach((row) => {
+    row.remove();
+  });
+}
+//Удаление 'active' для правильных квадратов
+function removeActive() {
+  const activeNum = document.querySelectorAll(".squares__sqr.active");
+  activeNum.forEach((item) => {
+    item.classList.remove("active");
+  });
+}
+//Смена цвета кнопок при клике
+const allBtns5x5 = document.querySelectorAll(".button");
+allBtns5x5.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    let color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    let borderCol = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    btn.style.border = `2px solid ${borderCol}`;
+    btn.style.backgroundColor = color;
+  });
+});
+mBtn.addEventListener("click", generateMNum);
+function generateMNum() {
+  removeAllNum(leftNumbers, topNumbers);
+  removeActive();
+  allSquares[0].classList.add("active");
+  allSquares[4].classList.add("active");
+  allSquares[5].classList.add("active");
+  allSquares[6].classList.add("active");
+  allSquares[8].classList.add("active");
+  allSquares[9].classList.add("active");
+  allSquares[10].classList.add("active");
+  allSquares[12].classList.add("active");
+  allSquares[14].classList.add("active");
+  allSquares[15].classList.add("active");
+  allSquares[19].classList.add("active");
+  allSquares[20].classList.add("active");
+  allSquares[24].classList.add("active");
+  let topNumData = [[5], [1], [1], [1], [5]];
+  let leftNumData = [
+    [1, 1],
+    [2, 2],
+    [1, 1, 1],
+    [1, 1],
+    [1, 1],
+  ];
+  generateNonogram(topNumData, leftNumData);
+  correctSquaresNum = 13;
+  resetTime();
+  removeCheckedCrossed();
+}
+
+dogBtn.addEventListener("click", generateDogNum);
+
+function generateDogNum() {
+  removeAllNum(leftNumbers, topNumbers);
+  removeActive();
+  allSquares[3].classList.add("active");
+  allSquares[5].classList.add("active");
+  allSquares[7].classList.add("active");
+  allSquares[8].classList.add("active");
+  allSquares[9].classList.add("active");
+  allSquares[11].classList.add("active");
+  allSquares[12].classList.add("active");
+  allSquares[13].classList.add("active");
+  allSquares[16].classList.add("active");
+  allSquares[18].classList.add("active");
+  allSquares[21].classList.add("active");
+  allSquares[23].classList.add("active");
+  topNumData = [[1], [3], [2], [5], [1]];
+  leftNumData = [[1], [1, 3], [3], [1, 1], [1, 1]];
+  generateNonogram(topNumData, leftNumData);
+  correctSquaresNum = 12;
+  resetTime();
+  removeCheckedCrossed();
+}
+
+clockBtn.addEventListener("click", generateClockNum);
+function generateClockNum() {
+  removeAllNum(leftNumbers, topNumbers);
+  removeActive();
+  allSquares[0].classList.add("active");
+  allSquares[1].classList.add("active");
+  allSquares[2].classList.add("active");
+  allSquares[3].classList.add("active");
+  allSquares[4].classList.add("active");
+  allSquares[6].classList.add("active");
+  allSquares[7].classList.add("active");
+  allSquares[8].classList.add("active");
+  allSquares[12].classList.add("active");
+  allSquares[16].classList.add("active");
+  allSquares[18].classList.add("active");
+  allSquares[20].classList.add("active");
+  allSquares[21].classList.add("active");
+  allSquares[22].classList.add("active");
+  allSquares[23].classList.add("active");
+  allSquares[24].classList.add("active");
+  let topNumData = [
+    [1, 1],
+    [2, 2],
+    [3, 1],
+    [2, 2],
+    [1, 1],
+  ];
+  let leftNumData = [[5], [3], [1], [1, 1], [5]];
+  generateNonogram(topNumData, leftNumData);
+  correctSquaresNum = 16;
+  resetTime();
+  removeCheckedCrossed();
+}
+
+planeBtn.addEventListener("click", generatePlaneNum);
+function generatePlaneNum() {
+  removeAllNum(leftNumbers, topNumbers);
+  removeActive();
+  allSquares[2].classList.add("active");
+  allSquares[6].classList.add("active");
+  allSquares[7].classList.add("active");
+  allSquares[8].classList.add("active");
+  allSquares[10].classList.add("active");
+  allSquares[11].classList.add("active");
+  allSquares[12].classList.add("active");
+  allSquares[13].classList.add("active");
+  allSquares[14].classList.add("active");
+  allSquares[17].classList.add("active");
+  allSquares[21].classList.add("active");
+  allSquares[22].classList.add("active");
+  allSquares[23].classList.add("active");
+  let topNumData = [[1], [2, 1], [5], [2, 1], [1]];
+  let leftNumData = [[1], [3], [5], [1], [3]];
+  generateNonogram(topNumData, leftNumData);
+  correctSquaresNum = 13;
+  resetTime();
+  removeCheckedCrossed();
+}
+chessBtn.addEventListener("click", generateChessNum);
+function generateChessNum() {
+  removeAllNum(leftNumbers, topNumbers);
+  removeActive();
+  allSquares[0].classList.add("active");
+  allSquares[2].classList.add("active");
+  allSquares[4].classList.add("active");
+  allSquares[6].classList.add("active");
+  allSquares[8].classList.add("active");
+  allSquares[10].classList.add("active");
+  allSquares[12].classList.add("active");
+  allSquares[14].classList.add("active");
+  allSquares[16].classList.add("active");
+  allSquares[18].classList.add("active");
+  allSquares[20].classList.add("active");
+  allSquares[22].classList.add("active");
+  allSquares[24].classList.add("active");
+  let topNumData = [
+    [1, 1, 1],
+    [1, 1],
+    [1, 1, 1],
+    [1, 1],
+    [1, 1, 1],
+  ];
+  let leftNumData = [
+    [1, 1, 1],
+    [1, 1],
+    [1, 1, 1],
+    [1, 1],
+    [1, 1, 1],
+  ];
+  generateNonogram(topNumData, leftNumData);
+  correctSquaresNum = 13;
+  resetTime();
+  removeCheckedCrossed();
 }

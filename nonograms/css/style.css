@@ -69,11 +69,104 @@ body {
 	transition: all linear 0.3s;
 }
 
+/*---------------Change-color---------------------*/
 body.dark {
 	background-color: #000000e0;
 	transition: all linear 0.3s;
 }
 
+body.dark .nonogram {
+	border: 2px solid pink;
+	background-color: #fff;
+}
+
+body.dark .top__square {
+	border: 1px solid pink;
+	background-color: pink;
+}
+
+body.dark .top__numbers-row {
+	border: 1px solid pink;
+	color: rgb(197, 150, 157);
+}
+
+body.dark .nonogram__squares {
+	border: 1px solid rgb(197, 150, 157);
+}
+
+body.dark .squares__sqr {
+	border: 0.5px solid rgb(243, 226, 228);
+	background-color: #fff;
+}
+
+body.dark .squares__sqr:hover {
+	box-shadow: 0px 0px 8px 1px rgb(197, 150, 157);
+}
+
+body.dark .squares__sqr.checked {
+	background-color: pink;
+}
+
+body.dark .left__numbers-row {
+	border: 1px solid pink;
+	color: rgb(197, 150, 157);
+}
+
+body.dark .clear__btn {
+	color: rgb(197, 150, 157);
+	background-color: pink;
+	box-shadow: 1px 1px 2px rgb(197, 150, 157);
+}
+
+body.dark .clear__btn:hover {
+	color: pink;
+	background-color: rgb(197, 150, 157);
+}
+
+body.dark .mode__input:checked+.mode__label {
+	background-color: rgb(197, 150, 157);
+}
+
+.mode__input:checked+.mode__label:hover {
+	background-color: greenyellow;
+	transition: all ease 1s;
+}
+
+body.dark .mode__input:checked+.mode__label:hover {
+	background-color: pink;
+}
+
+body.dark .clock {
+	color: rgb(197, 150, 157);
+}
+
+body.dark .button {
+	border: 2px solid pink;
+	background-color: rgb(197, 150, 157);
+}
+
+body.dark .squares__sqr.crossed {
+	background: url('../img/cross2.png') 110%/contain no-repeat;
+}
+
+body.dark .popup__title.popup__title_green {
+	color: rgb(197, 150, 157);
+}
+
+body.dark .popup__text {
+	color: rgb(197, 150, 157);
+}
+
+body.dark .popup__btn {
+	background-color: pink;
+	box-shadow: 1px 1px 2px rgb(197, 150, 157);
+}
+
+body.dark .popup__btn:hover {
+	background-color: rgb(197, 150, 157);
+}
+
+/*------------------------------------*/
 .wrapper {
 	display: flex;
 	overflow: hidden;
@@ -100,8 +193,6 @@ body.dark {
 	background-color: yellowgreen;
 	display: flex;
 	flex-direction: column;
-
-
 }
 
 .score {
@@ -278,6 +369,7 @@ body.dark {
 /*----------Clock----------------*/
 .clock {
 	padding: 0px 0px 10px 0px;
+	color: green;
 }
 
 /*----------Clear-btn----------------*/
@@ -368,4 +460,37 @@ body.dark {
 
 .mode__input:checked+.mode__label .mode__circle {
 	transform: translate(45px, 0);
+}
+
+/*---------------5x5 Buttons----------------*/
+.nonogram__btns5x5 {
+	display: flex;
+	gap: 20px;
+	padding: 0px 0px 10px 0px;
+}
+
+
+.button {
+	display: flex;
+	color: #000;
+	border: 2px solid #fff;
+	background-color: greenyellow;
+	font-weight: 600;
+	border-radius: 20px;
+	box-shadow: 1px 1px 2px green;
+	font-size: 18px;
+	padding: 10px;
+	margin: 20px 0px 0px 0px;
+	transition: all linear 0.3s;
+	cursor: pointer;
+}
+
+.m__btn {
+	border: 2px solid red;
+}
+
+.button:hover {
+	background-color: green;
+	box-shadow: 1px 1px 2px #000;
+	color: greenyellow;
 }
