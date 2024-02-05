@@ -177,17 +177,17 @@ body.dark .level:hover {
 	color: pink;
 }
 
+
 /*------------------------------------*/
 .wrapper {
 	display: flex;
-	flex-direction: column;
 	overflow: hidden;
 }
 
 .nonogram__container {
 	max-width: 1360px;
 	margin: 0 auto;
-	padding: 40px 15px 20px 15px;
+	padding: 40px 3px 20px 3px;
 	box-sizing: content-box;
 }
 
@@ -195,11 +195,11 @@ body.dark .level:hover {
 	display: inline-flex;
 	flex-direction: column;
 	border: 2px solid yellowgreen;
-	width: 353.8px;
+	width: 476px;
 }
 
 .top__square {
-	width: 149.5px;
+	width: 150px;
 	height: 149.5px;
 	border: 1px solid yellowgreen;
 	background-color: yellowgreen;
@@ -243,18 +243,19 @@ body.dark .level:hover {
 
 .top__numbers-row {
 	display: flex;
-	gap: 10px;
+	gap: 0;
 	flex-direction: column;
 	justify-content: flex-end;
 	border: 1px solid yellowgreen;
 	color: green;
 	font-weight: 900px;
-	padding: 0px 13.4px;
+	width: 32.3px;
+
 
 }
 
 .top__numbers-column {
-	margin: 5px 0px 5px 0px;
+	margin: 2px 0px 2px 0px;
 }
 
 .nonogram__left {
@@ -269,12 +270,12 @@ body.dark .level:hover {
 
 .left__numbers-row {
 	display: flex;
-	gap: 10px;
+	gap: 0;
 	justify-content: flex-end;
 	border: 1px solid yellowgreen;
 	color: green;
 	font-weight: 900px;
-	padding: 7.4px 0px;
+	padding: 3.41px 0px;
 }
 
 .left__numbers-column {
@@ -288,8 +289,8 @@ body.dark .level:hover {
 }
 
 .squares__sqr {
-	width: 39.6px;
-	height: 40px;
+	width: 32px;
+	height: 32px;
 	border: 0.5px solid yellowgreen;
 }
 
@@ -509,14 +510,22 @@ body.dark .level:hover {
 	color: greenyellow;
 }
 
+.test {
+	width: 80px;
+	height: 30px;
+	background-color: aqua;
+}
+
 /*-----------Levels---------*/
 .nonogram__levels {
 	display: flex;
 	gap: 20px;
 	justify-content: center;
 	align-items: center;
-	padding: 10px 0px 30px 0px;
+	padding: 0px 0px 30px 0px;
 }
+
+.level__easy {}
 
 .level {
 	display: flex;
@@ -537,3 +546,7 @@ body.dark .level:hover {
 	box-shadow: 1px 1px 2px #000;
 	color: greenyellow;
 }
+
+.level__middle {}
+
+.level__hard {}

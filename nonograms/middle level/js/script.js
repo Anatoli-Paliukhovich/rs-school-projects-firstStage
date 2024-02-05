@@ -109,12 +109,29 @@ leftNumbers.classList.add("left__numbers");
 nonogramLeft.append(leftNumbers);
 
 //Числа
-let topNumData = [[5], [1], [1], [1], [5]];
+
+let topNumData = [
+  [7],
+  [1, 1, 4],
+  [1, 7],
+  [3, 2],
+  [1, 1],
+  [1, 1],
+  [2, 1],
+  [1, 1, 1],
+  [2, 3],
+  [7],
+];
 let leftNumData = [
   [1, 1],
-  [2, 2],
-  [1, 1, 1],
   [1, 1],
+  [10],
+  [1, 2, 2],
+  [3, 1],
+  [1, 1, 1],
+  [3, 1],
+  [4, 2],
+  [10],
   [1, 1],
 ];
 
@@ -153,23 +170,23 @@ nonogramContainer.prepend(btns5x5);
 
 const mBtn = document.createElement("div");
 mBtn.classList.add("m__btn", "button");
-mBtn.innerHTML = `M`;
+mBtn.innerHTML = `TV`;
 btns5x5.append(mBtn);
 const dogBtn = document.createElement("div");
 dogBtn.classList.add("dog__btn", "button");
-dogBtn.innerHTML = `Dog`;
+dogBtn.innerHTML = `Clown`;
 btns5x5.append(dogBtn);
 const clockBtn = document.createElement("div");
 clockBtn.classList.add("clock__btn", "button");
-clockBtn.innerHTML = `Clock`;
+clockBtn.innerHTML = `Cat`;
 btns5x5.append(clockBtn);
 const planeBtn = document.createElement("div");
 planeBtn.classList.add("plane__btn", "button");
-planeBtn.innerHTML = `Plane`;
+planeBtn.innerHTML = `Ship`;
 btns5x5.append(planeBtn);
 const chessBtn = document.createElement("div");
 chessBtn.classList.add("chess__btn", "button");
-chessBtn.innerHTML = `Chess`;
+chessBtn.innerHTML = `Postcard`;
 btns5x5.append(chessBtn);
 
 //Игровое поле
@@ -177,31 +194,75 @@ const nonogramSquares = document.createElement("div");
 nonogramSquares.classList.add("nonogram__squares");
 nonogramLeft.append(nonogramSquares);
 
-let squares = 25;
+let squares = 100;
 function generateSquares(squares) {
   for (let i = 0; i < squares; i++) {
     const square = document.createElement("div");
     square.classList.add("squares__sqr");
     nonogramSquares.append(square);
+    const allSquares = document.querySelectorAll(".squares__sqr");
+    for (let i = 0; i < allSquares.length; i++) {
+      if ((i + 1) % 5 === 0 && (i + 1) % 10 !== 0) {
+        allSquares[i].style.borderRight = `1.5px solid green`;
+      }
+      if (i > 39 && i <= 49) {
+        allSquares[i].style.borderBottom = `1.5px solid green`;
+      }
+    }
   }
 }
 generateSquares(squares);
 //Добавление класса для правильных квадратиков
 const allSquares = document.querySelectorAll(".squares__sqr");
 
-allSquares[0].classList.add("active");
-allSquares[4].classList.add("active");
-allSquares[5].classList.add("active");
-allSquares[6].classList.add("active");
-allSquares[8].classList.add("active");
-allSquares[9].classList.add("active");
-allSquares[10].classList.add("active");
-allSquares[12].classList.add("active");
-allSquares[14].classList.add("active");
-allSquares[15].classList.add("active");
-allSquares[19].classList.add("active");
+allSquares[2].classList.add("active");
+allSquares[7].classList.add("active");
+allSquares[13].classList.add("active");
+allSquares[16].classList.add("active");
 allSquares[20].classList.add("active");
+allSquares[21].classList.add("active");
+allSquares[22].classList.add("active");
+allSquares[23].classList.add("active");
 allSquares[24].classList.add("active");
+allSquares[25].classList.add("active");
+allSquares[26].classList.add("active");
+allSquares[27].classList.add("active");
+allSquares[28].classList.add("active");
+allSquares[29].classList.add("active");
+allSquares[30].classList.add("active");
+allSquares[32].classList.add("active");
+allSquares[33].classList.add("active");
+allSquares[38].classList.add("active");
+allSquares[39].classList.add("active");
+allSquares[40].classList.add("active");
+allSquares[41].classList.add("active");
+allSquares[42].classList.add("active");
+allSquares[49].classList.add("active");
+allSquares[50].classList.add("active");
+allSquares[52].classList.add("active");
+allSquares[59].classList.add("active");
+allSquares[60].classList.add("active");
+allSquares[61].classList.add("active");
+allSquares[62].classList.add("active");
+allSquares[69].classList.add("active");
+allSquares[70].classList.add("active");
+allSquares[71].classList.add("active");
+allSquares[72].classList.add("active");
+allSquares[73].classList.add("active");
+allSquares[78].classList.add("active");
+allSquares[79].classList.add("active");
+allSquares[80].classList.add("active");
+allSquares[81].classList.add("active");
+allSquares[82].classList.add("active");
+allSquares[83].classList.add("active");
+allSquares[84].classList.add("active");
+allSquares[85].classList.add("active");
+allSquares[86].classList.add("active");
+allSquares[87].classList.add("active");
+allSquares[88].classList.add("active");
+allSquares[89].classList.add("active");
+allSquares[91].classList.add("active");
+allSquares[98].classList.add("active");
 
 //События по клику на квадратики
 function showCheckedCrossed() {
@@ -226,7 +287,7 @@ function showCheckedCrossed() {
 }
 showCheckedCrossed();
 //Проверка нажатия правильных квадратиков
-let correctSquaresNum = 13;
+let correctSquaresNum = 48;
 function correctSquares() {
   const checkedActiveSquares = document.querySelectorAll(
     ".squares__sqr.active.checked"
@@ -381,29 +442,83 @@ mBtn.addEventListener("click", generateMNum);
 function generateMNum() {
   removeAllNum(leftNumbers, topNumbers);
   removeActive();
-  allSquares[0].classList.add("active");
-  allSquares[4].classList.add("active");
-  allSquares[5].classList.add("active");
-  allSquares[6].classList.add("active");
-  allSquares[8].classList.add("active");
-  allSquares[9].classList.add("active");
-  allSquares[10].classList.add("active");
-  allSquares[12].classList.add("active");
-  allSquares[14].classList.add("active");
-  allSquares[15].classList.add("active");
-  allSquares[19].classList.add("active");
+
+  allSquares[2].classList.add("active");
+  allSquares[7].classList.add("active");
+  allSquares[13].classList.add("active");
+  allSquares[16].classList.add("active");
   allSquares[20].classList.add("active");
+  allSquares[21].classList.add("active");
+  allSquares[22].classList.add("active");
+  allSquares[23].classList.add("active");
   allSquares[24].classList.add("active");
-  let topNumData = [[5], [1], [1], [1], [5]];
+  allSquares[25].classList.add("active");
+  allSquares[26].classList.add("active");
+  allSquares[27].classList.add("active");
+  allSquares[28].classList.add("active");
+  allSquares[29].classList.add("active");
+  allSquares[30].classList.add("active");
+  allSquares[32].classList.add("active");
+  allSquares[33].classList.add("active");
+  allSquares[38].classList.add("active");
+  allSquares[39].classList.add("active");
+  allSquares[40].classList.add("active");
+  allSquares[41].classList.add("active");
+  allSquares[42].classList.add("active");
+  allSquares[49].classList.add("active");
+  allSquares[50].classList.add("active");
+  allSquares[52].classList.add("active");
+  allSquares[59].classList.add("active");
+  allSquares[60].classList.add("active");
+  allSquares[61].classList.add("active");
+  allSquares[62].classList.add("active");
+  allSquares[69].classList.add("active");
+  allSquares[70].classList.add("active");
+  allSquares[71].classList.add("active");
+  allSquares[72].classList.add("active");
+  allSquares[73].classList.add("active");
+  allSquares[78].classList.add("active");
+  allSquares[79].classList.add("active");
+  allSquares[80].classList.add("active");
+  allSquares[81].classList.add("active");
+  allSquares[82].classList.add("active");
+  allSquares[83].classList.add("active");
+  allSquares[84].classList.add("active");
+  allSquares[85].classList.add("active");
+  allSquares[86].classList.add("active");
+  allSquares[87].classList.add("active");
+  allSquares[88].classList.add("active");
+  allSquares[89].classList.add("active");
+  allSquares[91].classList.add("active");
+  allSquares[98].classList.add("active");
+
+  let topNumData = [
+    [7],
+    [1, 1, 4],
+    [1, 7],
+    [3, 2],
+    [1, 1],
+    [1, 1],
+    [2, 1],
+    [1, 1, 1],
+    [2, 3],
+    [7],
+  ];
   let leftNumData = [
     [1, 1],
-    [2, 2],
-    [1, 1, 1],
     [1, 1],
+    [10],
+    [1, 2, 2],
+    [3, 1],
+    [1, 1, 1],
+    [3, 1],
+    [4, 2],
+    [10],
     [1, 1],
   ];
+
   generateNonogram(topNumData, leftNumData);
-  correctSquaresNum = 13;
+  correctSquaresNum = 48;
   resetTime();
   removeCheckedCrossed();
 }
@@ -414,21 +529,79 @@ function generateDogNum() {
   removeAllNum(leftNumbers, topNumbers);
   removeActive();
   allSquares[3].classList.add("active");
+  allSquares[4].classList.add("active");
   allSquares[5].classList.add("active");
-  allSquares[7].classList.add("active");
-  allSquares[8].classList.add("active");
-  allSquares[9].classList.add("active");
-  allSquares[11].classList.add("active");
+  allSquares[6].classList.add("active");
   allSquares[12].classList.add("active");
-  allSquares[13].classList.add("active");
+  allSquares[15].classList.add("active");
   allSquares[16].classList.add("active");
-  allSquares[18].classList.add("active");
+  allSquares[17].classList.add("active");
+  allSquares[20].classList.add("active");
   allSquares[21].classList.add("active");
+  allSquares[22].classList.add("active");
   allSquares[23].classList.add("active");
-  topNumData = [[1], [3], [2], [5], [1]];
-  leftNumData = [[1], [1, 3], [3], [1, 1], [1, 1]];
+  allSquares[24].classList.add("active");
+  allSquares[25].classList.add("active");
+  allSquares[26].classList.add("active");
+  allSquares[27].classList.add("active");
+  allSquares[28].classList.add("active");
+  allSquares[29].classList.add("active");
+  allSquares[31].classList.add("active");
+  allSquares[33].classList.add("active");
+  allSquares[36].classList.add("active");
+  allSquares[38].classList.add("active");
+  allSquares[40].classList.add("active");
+  allSquares[44].classList.add("active");
+  allSquares[45].classList.add("active");
+  allSquares[49].classList.add("active");
+  allSquares[50].classList.add("active");
+  allSquares[54].classList.add("active");
+  allSquares[55].classList.add("active");
+  allSquares[59].classList.add("active");
+  allSquares[61].classList.add("active");
+  allSquares[66].classList.add("active");
+  allSquares[68].classList.add("active");
+  allSquares[71].classList.add("active");
+  allSquares[74].classList.add("active");
+  allSquares[75].classList.add("active");
+  allSquares[78].classList.add("active");
+  allSquares[82].classList.add("active");
+  allSquares[87].classList.add("active");
+  allSquares[91].classList.add("active");
+  allSquares[92].classList.add("active");
+  allSquares[93].classList.add("active");
+  allSquares[94].classList.add("active");
+  allSquares[95].classList.add("active");
+  allSquares[96].classList.add("active");
+  allSquares[97].classList.add("active");
+  allSquares[98].classList.add("active");
+  let topNumData = [
+    [1, 2],
+    [2, 2, 1],
+    [2, 2],
+    [1, 2, 1],
+    [1, 1, 2, 1, 1],
+    [3, 2, 1, 1],
+    [4, 1, 1],
+    [2, 2],
+    [2, 2, 1],
+    [1, 2],
+  ];
+  let leftNumData = [
+    [4],
+    [1, 3],
+    [10],
+    [1, 1, 1, 1],
+    [1, 2, 1],
+    [1, 2, 1],
+    [1, 1, 1],
+    [1, 2, 1],
+    [1, 1],
+    [8],
+  ];
+
   generateNonogram(topNumData, leftNumData);
-  correctSquaresNum = 12;
+  correctSquaresNum = 47;
   resetTime();
   removeCheckedCrossed();
 }
@@ -437,32 +610,58 @@ clockBtn.addEventListener("click", generateClockNum);
 function generateClockNum() {
   removeAllNum(leftNumbers, topNumbers);
   removeActive();
-  allSquares[0].classList.add("active");
   allSquares[1].classList.add("active");
-  allSquares[2].classList.add("active");
   allSquares[3].classList.add("active");
-  allSquares[4].classList.add("active");
-  allSquares[6].classList.add("active");
-  allSquares[7].classList.add("active");
-  allSquares[8].classList.add("active");
+  allSquares[11].classList.add("active");
   allSquares[12].classList.add("active");
-  allSquares[16].classList.add("active");
-  allSquares[18].classList.add("active");
+  allSquares[13].classList.add("active");
   allSquares[20].classList.add("active");
   allSquares[21].classList.add("active");
   allSquares[22].classList.add("active");
   allSquares[23].classList.add("active");
   allSquares[24].classList.add("active");
-  let topNumData = [
+  allSquares[30].classList.add("active");
+  allSquares[31].classList.add("active");
+  allSquares[32].classList.add("active");
+  allSquares[33].classList.add("active");
+  allSquares[34].classList.add("active");
+  allSquares[42].classList.add("active");
+  allSquares[52].classList.add("active");
+  allSquares[59].classList.add("active");
+  allSquares[62].classList.add("active");
+  allSquares[69].classList.add("active");
+  allSquares[72].classList.add("active");
+  allSquares[73].classList.add("active");
+  allSquares[78].classList.add("active");
+  allSquares[79].classList.add("active");
+  allSquares[82].classList.add("active");
+  allSquares[83].classList.add("active");
+  allSquares[84].classList.add("active");
+  allSquares[88].classList.add("active");
+  allSquares[91].classList.add("active");
+  allSquares[92].classList.add("active");
+  allSquares[93].classList.add("active");
+  allSquares[94].classList.add("active");
+  allSquares[95].classList.add("active");
+  allSquares[96].classList.add("active");
+  allSquares[97].classList.add("active");
+  allSquares[98].classList.add("active");
+  let topNumData = [[2], [4, 1], [9], [4, 3], [2, 2], [1], [1], [1], [3], [3]];
+  let leftNumData = [
+    [1, 1],
+    [3],
+    [5],
+    [5],
+    [1],
+    [1, 1],
     [1, 1],
     [2, 2],
     [3, 1],
-    [2, 2],
-    [1, 1],
+    [8],
   ];
-  let leftNumData = [[5], [3], [1], [1, 1], [5]];
+
   generateNonogram(topNumData, leftNumData);
-  correctSquaresNum = 16;
+  correctSquaresNum = 36;
   resetTime();
   removeCheckedCrossed();
 }
@@ -471,23 +670,79 @@ planeBtn.addEventListener("click", generatePlaneNum);
 function generatePlaneNum() {
   removeAllNum(leftNumbers, topNumbers);
   removeActive();
-  allSquares[2].classList.add("active");
-  allSquares[6].classList.add("active");
-  allSquares[7].classList.add("active");
-  allSquares[8].classList.add("active");
-  allSquares[10].classList.add("active");
-  allSquares[11].classList.add("active");
-  allSquares[12].classList.add("active");
+  allSquares[4].classList.add("active");
   allSquares[13].classList.add("active");
   allSquares[14].classList.add("active");
-  allSquares[17].classList.add("active");
-  allSquares[21].classList.add("active");
+  allSquares[15].classList.add("active");
   allSquares[22].classList.add("active");
-  allSquares[23].classList.add("active");
-  let topNumData = [[1], [2, 1], [5], [2, 1], [1]];
-  let leftNumData = [[1], [3], [5], [1], [3]];
+  allSquares[24].classList.add("active");
+  allSquares[25].classList.add("active");
+  allSquares[31].classList.add("active");
+  allSquares[34].classList.add("active");
+  allSquares[35].classList.add("active");
+  allSquares[36].classList.add("active");
+  allSquares[41].classList.add("active");
+  allSquares[44].classList.add("active");
+  allSquares[45].classList.add("active");
+  allSquares[46].classList.add("active");
+  allSquares[51].classList.add("active");
+  allSquares[52].classList.add("active");
+  allSquares[54].classList.add("active");
+  allSquares[55].classList.add("active");
+  allSquares[56].classList.add("active");
+  allSquares[57].classList.add("active");
+  allSquares[62].classList.add("active");
+  allSquares[63].classList.add("active");
+  allSquares[64].classList.add("active");
+  allSquares[65].classList.add("active");
+  allSquares[66].classList.add("active");
+  allSquares[67].classList.add("active");
+  allSquares[74].classList.add("active");
+  allSquares[80].classList.add("active");
+  allSquares[81].classList.add("active");
+  allSquares[82].classList.add("active");
+  allSquares[83].classList.add("active");
+  allSquares[84].classList.add("active");
+  allSquares[85].classList.add("active");
+  allSquares[86].classList.add("active");
+  allSquares[87].classList.add("active");
+  allSquares[88].classList.add("active");
+  allSquares[89].classList.add("active");
+  allSquares[91].classList.add("active");
+  allSquares[92].classList.add("active");
+  allSquares[93].classList.add("active");
+  allSquares[94].classList.add("active");
+  allSquares[95].classList.add("active");
+  allSquares[96].classList.add("active");
+  allSquares[97].classList.add("active");
+  allSquares[98].classList.add("active");
+  let topNumData = [
+    [1],
+    [3, 2],
+    [1, 2, 2],
+    [1, 1, 2],
+    [10],
+    [6, 2],
+    [4, 2],
+    [2, 2],
+    [2],
+    [1],
+  ];
+  let leftNumData = [
+    [1],
+    [3],
+    [1, 2],
+    [1, 3],
+    [1, 3],
+    [2, 4],
+    [6],
+    [1],
+    [10],
+    [8],
+  ];
+
   generateNonogram(topNumData, leftNumData);
-  correctSquaresNum = 13;
+  correctSquaresNum = 46;
   resetTime();
   removeCheckedCrossed();
 }
@@ -496,34 +751,78 @@ function generateChessNum() {
   removeAllNum(leftNumbers, topNumbers);
   removeActive();
   allSquares[0].classList.add("active");
+  allSquares[1].classList.add("active");
   allSquares[2].classList.add("active");
+  allSquares[3].classList.add("active");
   allSquares[4].classList.add("active");
+  allSquares[5].classList.add("active");
   allSquares[6].classList.add("active");
+  allSquares[7].classList.add("active");
   allSquares[8].classList.add("active");
+  allSquares[9].classList.add("active");
   allSquares[10].classList.add("active");
-  allSquares[12].classList.add("active");
-  allSquares[14].classList.add("active");
-  allSquares[16].classList.add("active");
-  allSquares[18].classList.add("active");
+  allSquares[19].classList.add("active");
   allSquares[20].classList.add("active");
-  allSquares[22].classList.add("active");
-  allSquares[24].classList.add("active");
+  allSquares[27].classList.add("active");
+  allSquares[29].classList.add("active");
+  allSquares[30].classList.add("active");
+  allSquares[32].classList.add("active");
+  allSquares[33].classList.add("active");
+  allSquares[34].classList.add("active");
+  allSquares[39].classList.add("active");
+  allSquares[40].classList.add("active");
+  allSquares[49].classList.add("active");
+  allSquares[50].classList.add("active");
+  allSquares[52].classList.add("active");
+  allSquares[53].classList.add("active");
+  allSquares[54].classList.add("active");
+  allSquares[59].classList.add("active");
+  allSquares[60].classList.add("active");
+  allSquares[69].classList.add("active");
+  allSquares[70].classList.add("active");
+  allSquares[72].classList.add("active");
+  allSquares[73].classList.add("active");
+  allSquares[74].classList.add("active");
+  allSquares[79].classList.add("active");
+  allSquares[80].classList.add("active");
+  allSquares[89].classList.add("active");
+  allSquares[90].classList.add("active");
+  allSquares[91].classList.add("active");
+  allSquares[92].classList.add("active");
+  allSquares[93].classList.add("active");
+  allSquares[94].classList.add("active");
+  allSquares[95].classList.add("active");
+  allSquares[96].classList.add("active");
+  allSquares[97].classList.add("active");
+  allSquares[98].classList.add("active");
+  allSquares[99].classList.add("active");
   let topNumData = [
-    [1, 1, 1],
+    [10],
+    [1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1],
     [1, 1],
     [1, 1, 1],
     [1, 1],
-    [1, 1, 1],
+    [10],
   ];
   let leftNumData = [
-    [1, 1, 1],
+    [10],
     [1, 1],
     [1, 1, 1],
+    [1, 3, 1],
     [1, 1],
-    [1, 1, 1],
+    [1, 3, 1],
+    [1, 1],
+    [1, 3, 1],
+    [1, 1],
+    [10],
   ];
+
   generateNonogram(topNumData, leftNumData);
-  correctSquaresNum = 13;
+  correctSquaresNum = 46;
   resetTime();
   removeCheckedCrossed();
 }
@@ -532,7 +831,7 @@ const levels = document.createElement("div");
 levels.classList.add("nonogram__levels");
 nonogramContainer.append(levels);
 levels.innerHTML = `
-<a href="./index.html" class="level__easy level">Easy</a>
+<a href="../index.html" class="level__easy level">Easy</a>
 <a href="../middle level/index.html" class="level__middle level">Middle</a>
 <a href="../hard level/index.html" class="level__hard level">Hard</a>
 `;
