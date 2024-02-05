@@ -71,17 +71,17 @@ popupBtn.classList.add("popup__btn");
 
 //Звук
 const checkSound = new Audio();
-checkSound.src = `../audio/check.mp3`;
+checkSound.src = `audio/check.mp3`;
 const crossSound = new Audio();
-crossSound.src = `../audio/cross.mp3`;
+crossSound.src = `audio/cross.mp3`;
 const clearSound = new Audio();
-clearSound.src = `../audio/clear.mp3`;
+clearSound.src = `audio/clear.mp3`;
 const winGame = new Audio();
-winGame.src = `../audio/win.mp3`;
+winGame.src = `audio/win.mp3`;
 const resetGame = new Audio();
-resetGame.src = `../audio/reset.mp3`;
+resetGame.src = `audio/reset.mp3`;
 const changeModePlay = new Audio();
-changeModePlay.src = `../audio/mode.mp3`;
+changeModePlay.src = `audio/mode.mp3`;
 
 //Секундомер
 const clock = document.createElement("div");
@@ -1211,5 +1211,5 @@ nonogramContainer.append(levels);
 levels.innerHTML = `
 <a href="../index.html" class="level__easy level">Easy</a>
 <a href="../middle level/index.html" class="level__middle level">Middle</a>
-<a href="../hard level/index.html" class="level__hard level">Hard</a>
+<button disabled class="level__btn"><a href="#" class="level__hard level">Hard</a></button>
 `;

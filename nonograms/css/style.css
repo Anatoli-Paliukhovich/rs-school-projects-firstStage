@@ -537,3 +537,12 @@ body.dark .level:hover {
 	box-shadow: 1px 1px 2px #000;
 	color: greenyellow;
 }
+
+.level__btn {
+	border-radius: 20px;
+}
+
+.level__btn[disabled] .level {
+	background-color: green;
+	border-radius: 20px;
+}
