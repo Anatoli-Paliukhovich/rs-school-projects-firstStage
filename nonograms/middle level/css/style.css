@@ -547,6 +547,11 @@ body.dark .level:hover {
 	color: greenyellow;
 }
 
-.level__middle {}
+.level__btn {
+	border-radius: 20px;
+}
 
-.level__hard {}
+.level__btn[disabled] .level {
+	background-color: green;
+	border-radius: 20px;
+}
