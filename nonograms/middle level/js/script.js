@@ -338,6 +338,7 @@ function clearPuzzle() {
 function showPopup() {
   popup.classList.add("open");
   popupTitle.innerHTML = `Great! You have solved the nonogram!`;
+  popupTitle.style.fontSize = `18px`;
   popupTitle.classList.add("popup__title_green");
   winGame.play();
   pauseTime();
