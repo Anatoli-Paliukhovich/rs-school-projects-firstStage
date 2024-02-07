@@ -264,13 +264,31 @@ allSquares[89].classList.add("active");
 allSquares[91].classList.add("active");
 allSquares[98].classList.add("active");
 
+allSquares.forEach((square) => {
+  square.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+    if (square.classList.contains("checked")) {
+      square.classList.remove("checked");
+      square.classList.add("crossed");
+      checkSound.pause();
+      crossSound.play();
+    } else if (square.classList.contains("crossed")) {
+      square.classList.remove("crossed");
+      clearSound.play();
+    } else {
+      square.classList.add("crossed");
+      checkSound.play();
+      startTime();
+    }
+    correctSquares();
+  });
+});
 //События по клику на квадратики
 function showCheckedCrossed() {
   allSquares.forEach((square) => {
     square.addEventListener("click", function () {
       if (square.classList.contains("checked")) {
         square.classList.remove("checked");
-        square.classList.add("crossed");
         checkSound.pause();
         crossSound.play();
       } else if (square.classList.contains("crossed")) {
@@ -319,7 +337,7 @@ function clearPuzzle() {
 //Появление попапа
 function showPopup() {
   popup.classList.add("open");
-  popupTitle.innerHTML = `You won!`;
+  popupTitle.innerHTML = `Great! You have solved the nonogram!`;
   popupTitle.classList.add("popup__title_green");
   winGame.play();
   pauseTime();
