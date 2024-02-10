@@ -2,76 +2,76 @@
 
 const taskList = [
   {
-    hint: "I'm a nocturnal bird known for my hooting sound.",
-    word: "owl",
+    hint: "A person who shoots with a bow and arrows",
+    word: "archer",
   },
   {
-    hint: "I'm a venomous snake known for my hood.",
-    word: "cobra",
+    hint: "A strong, hard magnetic silvery-grey metal",
+    word: "iron",
   },
   {
-    hint: "I'm a bird that can imitate human speech.",
-    word: "parrot",
+    hint: "It is the oldest known ceramic material",
+    word: "clay",
   },
   {
-    hint: "I have wings and can soar high in the sky.",
-    word: "eagle",
+    hint: "A mounted soldier serving under a feudal superior in the Middle Ages",
+    word: "knight",
   },
   {
-    hint: "I'm known for my humps and live in the desert.",
-    word: "camel",
+    hint: "A race, conflict, or other competition between rivals, as for a prize",
+    word: "contest",
   },
   {
-    hint: "I'm a reptile that can change color and blend in with my surroundings.",
-    word: "chameleon",
+    hint: "A U-shaped metal thing",
+    word: "horseshoe",
   },
   {
-    hint: "I have black and white stripes and am often associated with zebras.",
-    word: "penguin",
+    hint: "Heating pieces of wrought iron or steel until the metal becomes soft enough",
+    word: "blacksmithing",
   },
   {
-    hint: "I'm a small, furry mammal that can fly and see in the dark.",
-    word: "bat",
+    hint: "A circlet usually of precious metal worn especially on the finger",
+    word: "ring",
   },
   {
-    hint: "I'm black and white and loved all over the world.",
-    word: "panda",
+    hint: "A cylindrical container with a handle and a lip, used for holding and pouring liquids",
+    word: "jug",
   },
   {
-    hint: "I have a long neck and spots on my body.",
-    word: "giraffe",
+    hint: "A piece of a homogeneous solid substance having a natural geometrically regular form with symmetrically arranged plane faces",
+    word: "crystal",
   },
   {
-    hint: "I can swim, quack, and have feathers.",
-    word: "duck",
+    hint: "Impossible to believe",
+    word: "incredible",
   },
   {
-    hint: "I'm the king of the jungle.",
-    word: "lion",
+    hint: "A long-handled brush of bristles or twigs, used for sweeping",
+    word: "broom",
   },
   {
-    hint: "I have eight legs and build webs.",
-    word: "spider",
+    hint: "A thing which can be added to something else in order to make it more useful, versatile, or attractive",
+    word: "accessory",
   },
   {
-    hint: "I live in the ocean and have a big fin on my back.",
-    word: "shark",
+    hint: "A person who watches at a show, game, or other event",
+    word: "spectator",
   },
   {
-    hint: "I have a bushy tail and climb trees.",
-    word: "squirrel",
+    hint: "A hostile encounter between opposing military forces",
+    word: "battle",
   },
   {
-    hint: "I have a long trunk and large ears.",
-    word: "elephant",
+    hint: "A public display, as of the work of artists or artisans, the products of farms or factories, the skills of performers, or objects of general interest",
+    word: "exhibition",
   },
   {
-    hint: "I can fly and hum around flowers.",
-    word: "bee",
+    hint: "A person or company that makes a high-quality or distinctive product in small quantities, usually by hand or using traditional methods",
+    word: "artisan",
   },
   {
-    hint: "I have a shell on my back and move very slowly.",
-    word: "turtle",
+    hint: "any of various forms of protective head covering worn by soldiers",
+    word: "helmet",
   },
 ];
 
