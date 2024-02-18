@@ -13,7 +13,7 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 7. **Work with External Libraries in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/AnatoliPaliukhovich-7943/8R6B74HW?sharingId=745DBBD90FAC0138)
 8. **Organize Code with Namespaces in TypeScript**: [Badge](https://learn.microsoft.com/api/achievements/share/en-us/AnatoliPaliukhovich-7943/BLMXCNBD?sharingId=745DBBD90FAC0138)
 
-## Reflections
+## Reflections  
 
 In general the course is good!
 
