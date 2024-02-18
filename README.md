@@ -15,4 +15,13 @@ Here is a collection of badges I earned from completing Microsoft Learn's TypeSc
 
 ## Reflections
 
-The course is great! But the course of Anya Kubow is way better
+In general the course is good!
+
+1. **Getting Started with TypeScript**: I familiarized myself with TypeScript basics.
+2. **Declare Variable Types in TypeScript**: I learnt how to declare variable types in TypeScript.
+3. **Implement Interfaces in TypeScript**: I got understanding and practical skills in using interfaces for structuring complex data types.
+4. **Develop Typed Functions in TypeScript**: The aim to solidify my understanding and application of TypeScript's type system in the context of function development was achieved.
+5. **Declare and Instantiate Classes in TypeScript**: I learnt some object-oriented programming concepts within TypeScript, including class syntax, inheritance, and access modifiers.
+6. **Generics in TypeScript**: I understood and used generics in TypeScript.
+7. **Work with External Libraries in TypeScript**: I was equiped with the skills to effectively integrate and utilize external libraries in TypeScript projects, addressing common challenges like type definitions and module imports.
+8. **Organize Code with Namespaces in TypeScript**: Just learnt something about Namespaces in TypeScript, and decided for myself to use modules.  
