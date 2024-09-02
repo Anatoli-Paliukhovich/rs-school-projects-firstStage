@@ -52,7 +52,7 @@ menuBtns.forEach(function (btn, index) {
 });
 
 //Формирование карточек продуктов
-import json from '../json/products.json' assert {type: 'json'};
+import json from '../json/products.js';
 //Формирование карточек coffee
 const coffeeCards = json.filter(item => {
 	return item.category === 'coffee';
