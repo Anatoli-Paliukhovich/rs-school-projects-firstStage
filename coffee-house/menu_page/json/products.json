@@ -1,4 +1,4 @@
-[
+const json = [
 	{
 		"id": 1,
 		"url": "img/main/cards/card-1.jpg",
@@ -720,3 +720,4 @@
 		]
 	}
 ]
+export default json;
